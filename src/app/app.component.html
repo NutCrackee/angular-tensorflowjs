@@ -1,0 +1,196 @@
+<div fxLayout="row" fxLayoutAlign="center center">
+  <mat-tab-group>
+    <mat-tab>
+      <ng-template mat-tab-label>
+        <mat-icon class="example-tab-icon">trending_up</mat-icon>
+        Linear regresion example
+      </ng-template>
+      <mat-card class="example-card">
+        <mat-accordion>
+          <mat-expansion-panel>
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                Generate custom values
+              </mat-panel-title>
+              <mat-panel-description>
+                Click to expand the panel
+              </mat-panel-description>
+            </mat-expansion-panel-header>
+
+            <div fxLayout="row" fxLayoutAlign="space-between center">
+              <div fxLayout="column" fxLayoutAlign="start center">
+                <mat-form-field class="example-full-width">
+                  <input
+                    matInput
+                    #postalCode
+                    maxlength="5"
+                    placeholder="Number of values"
+                    value="150"
+                  />
+                  <mat-hint align="end"
+                    >{{ postalCode.value.length }} / 5</mat-hint
+                  >
+                </mat-form-field>
+                <mat-form-field class="example-full-width">
+                  <input
+                    matInput
+                    #postalCode
+                    maxlength="5"
+                    placeholder="Learning rate"
+                    value="0.1"
+                  />
+                  <mat-hint align="end"
+                    >{{ postalCode.value.length }} / 5</mat-hint
+                  >
+                </mat-form-field>
+                <mat-form-field>
+                  <mat-label>Select an option</mat-label>
+                  <mat-select [(value)]="selected">
+                    <mat-option>None</mat-option>
+                    <mat-option value="1">SGD</mat-option>
+                    <mat-option value="2">Adagrad</mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </div>
+              <div fxLayout="column" fxLayoutAlign="start center">
+                <canvas
+                  #canvas
+                  id="stage"
+                  width="280"
+                  height="280"
+                  style="border:1px solid #000000;"
+                  (click)="canvasClicked($event)"
+                ></canvas>
+              </div>
+            </div>
+
+            <mat-accordion>
+              <mat-expansion-panel
+                style="margin-top: 24px;margin-bottom: 24px; background-color: rgba(214, 214, 214, 0.25)"
+              >
+                <mat-expansion-panel-header>
+                  <mat-panel-title>
+                    Generated data
+                  </mat-panel-title>
+                </mat-expansion-panel-header>
+
+                <table style="border: 1px solid black">
+                  <tr>
+                    <td>X values:</td>
+                    <td *ngFor="let xVal of xVals">{{ xVal }}</td>
+                  </tr>
+
+                  <tr>
+                    <td>Y values:</td>
+                    <td *ngFor="let yVal of yVals">{{ yVal }}</td>
+                  </tr>
+                </table>
+              </mat-expansion-panel>
+            </mat-accordion>
+
+            <div fxLayout="row" fxLayoutAlign="space-between center">
+              <button
+                mat-raised-button
+                color="warn"
+                (click)="clearData($event)"
+              >
+                Clear data
+              </button>
+              <button
+                mat-raised-button
+                color="primary"
+                (click)="generujPico($event)"
+              >
+                Generate
+              </button>
+            </div>
+          </mat-expansion-panel>
+        </mat-accordion>
+
+
+
+        <div style="margin-top: 18px;">
+        <mat-accordion>
+            <mat-expansion-panel>
+              <mat-expansion-panel-header>
+                <mat-panel-title>
+                  Result Panel 
+                </mat-panel-title>
+                <mat-panel-description>
+                  Click to expand the panel
+                </mat-panel-description>
+              </mat-expansion-panel-header>
+          
+              <div style="display: block;">
+                  <canvas id="resultGraph"></canvas>
+                </div>
+                
+
+
+  
+
+            </mat-expansion-panel>
+          </mat-accordion>
+
+        </div>
+
+      </mat-card>
+    </mat-tab>
+
+    <mat-tab>
+      <ng-template mat-tab-label>
+        <mat-icon class="example-tab-icon">format_paint</mat-icon>
+        Canvas painting example
+      </ng-template>
+      <mat-card class="example-card">
+        <mat-card-header>
+          <div mat-card-avatar class="example-header-image"></div>
+          <mat-card-title>Shiba Inu</mat-card-title>
+          <mat-card-subtitle>Dog Breed</mat-card-subtitle>
+        </mat-card-header>
+        <img
+          mat-card-image
+          src="https://material.angular.io/assets/img/examples/shiba2.jpg"
+          alt="Photo of a Shiba Inu"
+        />
+        <mat-card-content>
+          <p>
+            The Shiba Inu is the smallest of the six original and distinct spitz
+            breeds of dog from Japan. A small, agile dog that copes very well
+            with mountainous terrain, the Shiba Inu was originally bred for
+            hunting.
+          </p>
+        </mat-card-content>
+        <mat-card-actions>
+          <button mat-button>LIKE</button>
+          <button mat-button>SHARE</button>
+        </mat-card-actions>
+      </mat-card>
+    </mat-tab>
+
+    <mat-tab>
+      <ng-template mat-tab-label>
+        <mat-icon class="example-tab-icon">image_search</mat-icon>
+        Picture guessing example
+      </ng-template>
+
+      <div style="display: block;">
+        <canvas
+          baseChart
+          width="400"
+          height="400"
+          [datasets]="lineChartData"
+          [labels]="lineChartLabels"
+          [options]="lineChartOptions"
+          [colors]="lineChartColors"
+          [legend]="lineChartLegend"
+          [chartType]="lineChartType"
+          [plugins]="lineChartPlugins"
+        >
+        </canvas>
+      </div>
+    </mat-tab>
+  </mat-tab-group>
+
+  <router-outlet></router-outlet>
+</div>
