@@ -1,6 +1,7 @@
 import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
 import { ChartDataSets, ChartOptions, ChartType } from 'chart.js';
 import { Color, Label  } from 'ng2-charts';
+import { DrawableDirective } from './drawable.directive';
 import * as tf from '@tensorflow/tfjs';
 @Component({
   selector: 'app-root',

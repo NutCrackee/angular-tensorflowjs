@@ -140,31 +140,13 @@
     <mat-tab>
       <ng-template mat-tab-label>
         <mat-icon class="example-tab-icon">format_paint</mat-icon>
-        Canvas painting example
+        Canvas drawing example
       </ng-template>
       <mat-card class="example-card">
-        <mat-card-header>
-          <div mat-card-avatar class="example-header-image"></div>
-          <mat-card-title>Shiba Inu</mat-card-title>
-          <mat-card-subtitle>Dog Breed</mat-card-subtitle>
-        </mat-card-header>
-        <img
-          mat-card-image
-          src="https://material.angular.io/assets/img/examples/shiba2.jpg"
-          alt="Photo of a Shiba Inu"
-        />
-        <mat-card-content>
-          <p>
-            The Shiba Inu is the smallest of the six original and distinct spitz
-            breeds of dog from Japan. A small, agile dog that copes very well
-            with mountainous terrain, the Shiba Inu was originally bred for
-            hunting.
-          </p>
-        </mat-card-content>
-        <mat-card-actions>
-          <button mat-button>LIKE</button>
-          <button mat-button>SHARE</button>
-        </mat-card-actions>
+        <div class="wrapper">
+          <canvas drawable (newImage)="predict($event)"></canvas><br>
+      </div>
+      <button class="btn btn-sm btn-warning" (click)="canvas.clear()">Erase</button>
       </mat-card>
     </mat-tab>
 

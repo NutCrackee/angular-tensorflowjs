@@ -16,9 +16,12 @@ import { MatExpansionModule } from '@angular/material/expansion';
 import { MatSliderModule } from '@angular/material/slider';
 import { MatSelectModule } from '@angular/material/select';
 
+import { DrawableDirective } from './drawable.directive';
+
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    DrawableDirective
   ],
   imports: [
     BrowserModule,
