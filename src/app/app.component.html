@@ -103,6 +103,15 @@
               >
                 Generate
               </button>
+              <button
+                mat-raised-button
+                color="primary"
+                (click)="trainNewModel()"
+              >
+                Train model
+              </button>
+
+              
             </div>
           </mat-expansion-panel>
         </mat-accordion>
@@ -143,10 +152,7 @@
         Canvas drawing example
       </ng-template>
       <mat-card class="example-card">
-        <div class="wrapper">
-          <canvas drawable (newImage)="predict($event)"></canvas><br>
-      </div>
-      <button class="btn btn-sm btn-warning" (click)="canvas.clear()">Erase</button>
+        <app-drawning-example></app-drawning-example>
       </mat-card>
     </mat-tab>
 

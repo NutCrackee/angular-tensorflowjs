@@ -18,10 +18,15 @@ import { MatSelectModule } from '@angular/material/select';
 
 import { DrawableDirective } from './drawable.directive';
 
+import { DrawningExampleComponent } from './drawningExample/drawningExample.component';
+import { ChartComponent } from './drawningExampleChart/chart.component';
+
 @NgModule({
   declarations: [
     AppComponent,
-    DrawableDirective
+    DrawableDirective,
+    DrawningExampleComponent,
+    ChartComponent
   ],
   imports: [
     BrowserModule,

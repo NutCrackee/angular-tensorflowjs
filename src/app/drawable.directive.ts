@@ -14,15 +14,15 @@ import {
 export class DrawableDirective implements OnInit {
     pos = { x: 0, y: 0 };
     ctx: CanvasRenderingContext2D;
-    canvas: HTMLCanvasElement;
+    canvasDrawning: HTMLCanvasElement;
 
     @Output() newImage = new EventEmitter();
 
     constructor(private el: ElementRef) { }
 
     ngOnInit() {
-        this.canvas = this.el.nativeElement as HTMLCanvasElement;
-        this.ctx = this.canvas.getContext('2d');
+        this.canvasDrawning = this.el.nativeElement as HTMLCanvasElement;
+        this.ctx = this.canvasDrawning.getContext('2d');
     }
 
     @HostListener('mouseup', ['$event'])
@@ -49,7 +49,7 @@ export class DrawableDirective implements OnInit {
 
         this.ctx.beginPath(); // begin
 
-        this.ctx.lineWidth = 10;
+        this.ctx.lineWidth = 9;
         this.ctx.lineCap = 'round';
         this.ctx.strokeStyle = '#111111';
 
@@ -71,12 +71,12 @@ export class DrawableDirective implements OnInit {
         this.pos.y = e.offsetY;
     }
 
-    clear() {
+    clearDraw() {
         this.ctx.clearRect(0, 0, this.ctx.canvas.width, this.ctx.canvas.height);
-    }
+        }
 
     getImgData(): ImageData {
-        const scaled = this.ctx.drawImage(this.canvas, 0, 0, 28, 28);
+        const scaled = this.ctx.drawImage(this.canvasDrawning, 0, 0, 28, 28);
         return this.ctx.getImageData(0, 0, 28, 28);
     }
 }
