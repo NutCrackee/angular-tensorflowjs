@@ -1,0 +1,44 @@
+<mat-card class="drawing-card">
+  <mat-card-header>
+    <mat-card-title
+      >TensorflowJS image recognition example with trained Python model</mat-card-title
+    >
+    <mat-card-subtitle>Select an image you would like to recognize with using pretrained MobileNet model</mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
+     
+      <div fxLayout="row" fxLayoutAlign="center center" >
+      <div id="file-container" class="uploadTextText">
+          Procces an image: <input type="file" class="uploadBtn" id="files" (change)="loadImage($event)" name="files[]" multiple />
+        </div>
+        </div>
+      
+        <mat-card *ngFor="let image of LoadedImages" class="drawing-card">
+            
+            <mat-card-header>
+                <div mat-card-avatar class="example-header-image"></div>
+                <mat-card-title
+                  >Image</mat-card-title
+                >
+                <mat-card-subtitle>
+                   
+                  Uploaded height: 
+                  <span class="original-size"> {{ image.naturalHeight }}  </span> px | 
+                  width: <span class="original-size"> {{ image.naturalWidth }} </span>px 
+                </mat-card-subtitle>
+              </mat-card-header>
+              
+              <mat-card-content>
+                  <div fxLayout="row" fxLayoutAlign="center center" >
+          <img class="uploadedImage" height="224" width="224" src="{{image.src}}">
+        </div>
+          <app-chart-image-classification [data]="predictions"></app-chart-image-classification>
+   
+        </mat-card-content>
+    
+        </mat-card>
+
+  </mat-card-content>
+</mat-card>
+
+

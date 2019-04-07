@@ -105,7 +105,6 @@ export class AppComponent implements OnInit {
   }
 
   init() {
-    debugger;
     if (this.yVals.length > 0) {
       const yValsTensor = tf.tensor1d(this.yVals);
       this.loss(this.xVals, yValsTensor);
@@ -184,12 +183,10 @@ export class AppComponent implements OnInit {
   //// LOAD PRETRAINED KERAS MODEL ////
   
   async loadModel() {
-    debugger;
     this.model = await tf.loadLayersModel('/assets/model.json');
   }
 
   async predictDrawable(imageData: ImageData) {
-    debugger;
     const pred = await tf.tidy(() => {
       // Convert the canvas pixels to
       let img = tf.browser.fromPixels(imageData, 1);

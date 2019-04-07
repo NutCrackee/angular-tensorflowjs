@@ -1,0 +1,18 @@
+.uploadedImage {
+  border: 1px solid rgba(244, 67, 54, 0.5411764705882353);
+}
+
+.original-size {
+    color: #ef6c00;
+    font-weight: bold;
+}
+
+.uploadTextText {
+  color: #ef6c00;
+  display: block;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  font-size: 14px;
+  height: 16px;
+  margin-bottom: 16px;
+  margin-top: -8px;
+}

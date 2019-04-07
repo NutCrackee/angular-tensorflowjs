@@ -19,14 +19,18 @@ import { MatSelectModule } from '@angular/material/select';
 import { DrawableDirective } from './drawable.directive';
 
 import { DrawningExampleComponent } from './drawningExample/drawningExample.component';
+import { ImageClassificationComponent } from './imageClassification/imageClassification.component';
 import { ChartComponent } from './drawningExampleChart/chart.component';
+import { ChartImageClassificationComponent } from './imageClassificationChart/chartImageClassification.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     DrawableDirective,
     DrawningExampleComponent,
-    ChartComponent
+    ImageClassificationComponent,
+    ChartComponent,
+    ChartImageClassificationComponent
   ],
   imports: [
     BrowserModule,
@@ -41,7 +45,7 @@ import { ChartComponent } from './drawningExampleChart/chart.component';
     ChartsModule,
     MatExpansionModule,
     MatSliderModule,
-    MatSelectModule
+    MatSelectModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
