@@ -1,6 +1,5 @@
-import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
-import { ChartDataSets, ChartOptions, ChartType } from 'chart.js';
-import { Color, Label  } from 'ng2-charts';
+import { Component, OnInit, ElementRef, ViewChild, ViewChildren } from '@angular/core';
+import { Chart } from 'chart.js';
 import { DrawableDirective } from '../drawable.directive';
 import * as tf from '@tensorflow/tfjs';
 
@@ -16,11 +15,51 @@ interface IChip {
 })
 export class LinearRegressionExampleComponent implements OnInit {
   // Train data
-  xVals: number[] = [];
-  yVals: number[] = [];
+  xVals: number[] = [
+    3.3,
+    4.4,
+    5.5,
+    6.71,
+    6.93,
+    4.168,
+    9.779,
+    6.182,
+    7.59,
+    2.167,
+    7.042,
+    10.791,
+    5.313,
+    7.997,
+    5.654,
+    9.27,
+    3.1
+  ];
+  yVals: number[] = [
+    1.7,
+    2.76,
+    2.09,
+    3.19,
+    1.694,
+    1.573,
+    3.366,
+    2.596,
+    2.53,
+    1.221,
+    2.827,
+    3.465,
+    1.65,
+    2.904,
+    2.42,
+    2.94,
+    1.3
+  ];
+  learningRate = 0.1;
   // Generating train data
+  private canvasSize = 320;
   numberOfGeneratedValues = 15;
   chipsData: IChip[] = [];
+  chart: Chart;
+  chartData;
   // Linear regresion START
   linearModel: tf.Sequential;
   prediction: any;
@@ -35,75 +74,54 @@ export class LinearRegressionExampleComponent implements OnInit {
     return this.canvasCtx;
   }
 
+  @ViewChild('canvasResult') canvasResult: ElementRef;
+  private canvasResultCtx: CanvasRenderingContext2D;
+  public get getCanvasResultCtx(): CanvasRenderingContext2D {
+    if (this.canvasResultCtx === undefined) {
+      this.canvasResultCtx = (this.canvasResult.nativeElement as HTMLCanvasElement).getContext('2d');
+    }
+    return this.canvasResultCtx;
+  }
+
+  public get getCanvasSize(): number {
+    return this.canvasSize;
+  }
+
+  public get getMValue(): string {
+    if ( this.mLin !== undefined ) {
+      return this.mLin.dataSync()[0].toFixed(4).toString();
+    }
+    return '?';
+  }
+
+  public get getBValue(): string {
+    if ( this.bLin !== undefined ) {
+      return this.bLin.dataSync()[0].toFixed(4).toString();
+    }
+    return '?';
+  }
+
+
   @ViewChild(DrawableDirective) drawableCanvas;
 
   // y = mx + b
-  m = tf.variable(tf.scalar(Math.random()));
-  b = tf.variable(tf.scalar(Math.random()));
+  // m = tf.variable(tf.scalar(Math.random()));
+  // b = tf.variable(tf.scalar(Math.random()));
 
   // Opimalizace modelu
-  learningRate = 0.1;
   optimizer = tf.train.sgd(this.learningRate);
-
-  public lineChartData: ChartDataSets[] = [
-    { data: [1, 2, 3, 4, 5, 6, 7], label: 'Series A' },
-  ];
-  public lineChartLabels: Label[] = ['January', 'February', 'March', 'April', 'May', 'June', 'July'];
-  public lineChartOptions: (ChartOptions ) = {
-    responsive: true,
-    legend: {
-      display: true
-    }
-  };
-  public lineChartColors: Color[] = [
-    {
-       // borderColor: 'black',
-      backgroundColor: 'rgb(244, 67, 54)',
-    },
-  ];
-
-  // First tab chart
-  public scatterChartOptions: ChartOptions = {
-    responsive: true,
-  };
-  public scatterChartType: ChartType = 'scatter';
-  public scatterChartData: ChartDataSets[] = [
-    {
-      data: [
-        { x: 1, y: 1 },
-        { x: 2, y: 3 },
-        { x: 3, y: -2 },
-        { x: 4, y: 4 },
-        { x: 5, y: -3, r: 20 },
-      ],
-      type: 'line',
-      label: 'Generated Data',
-      pointRadius: 3,
-    },
-    {
-      type: 'line',
-      label: 'Data',
-      data: [
-        { x: 0, y: 0 },
-        { x: 250, y: 250 },
-      ],
-      pointRadius: 3,
-    }
-  ];
-
-
-  public lineChartType = 'line';
-  public lineChartPlugins = [];
 
   ngOnInit() {
     this.init();
     //this.trainLinear();
   }
 
+    
+
   init() {
     if (this.yVals.length > 0) {
     const yValsTensor = tf.tensor1d(this.yVals);
-    this.loss(this.xVals, yValsTensor);
+    //this.loss(this.xVals, yValsTensor);
   }
 
     // setInterval( () => {
@@ -142,25 +160,43 @@ export class LinearRegressionExampleComponent implements OnInit {
       return this.mLin.mul(x).add(this.bLin);
     });
   }
+
+  // subtracts the two arrays & squares each element of the tensor then finds the mean.
   lossLin(prediction, labels) {
-  //subtracts the two arrays & squares each element of the tensor then finds the mean. 
-  const error = prediction.sub(labels).square().mean();
-  return error;
-}
-  trainLin() {
-    debugger;
-    const learningRate = 0.01;
-    const optimizer = tf.train.sgd(learningRate);
+    const error = prediction.sub(labels).square().mean();
+    return error;
+  }
+
+  async trainLin() {
+    const optimizer = tf.train.sgd(this.learningRate);
     optimizer.minimize(()  => {
         const predsYs = this.predictLin(tf.tensor1d(this.xVals));
-        console.log(predsYs);
+        console.log('prediction Y function result:', predsYs);
         const stepLoss = this.lossLin(predsYs, tf.tensor1d(this.yVals))
-        console.log(stepLoss.dataSync()[0])
+        console.log('loss function result:', stepLoss.dataSync()[0]);
         return stepLoss;
     });
-      //plot();
+    console.log(this.mLin.print());
+    console.log(this.bLin.print());
+
+    await this.generatePlotData();
+
+    const ctx = this.getCanvasResultCtx; //this.getCanvasResultCtx;
+    this.chart = new Chart(ctx, {
+      type: 'line',
+      data: this.chartData,
+      options: {
+        scales: {
+          xAxes: [
+            {
+              type: 'linear',
+              position: 'bottom'
+            }
+          ]
+        }
+      }
+    });
   }
-  
 
 
   // async trainLinear(): Promise<any> {
@@ -245,22 +281,59 @@ export class LinearRegressionExampleComponent implements OnInit {
     for (let index = 0; index < this.xVals.length; index++) {
       newData.push({ x: this.xVals[index], y: this.yVals[index]});
     }
-    this.scatterChartData[0].data = newData;
   }
 
   canvasClicked(event: any) {
     this.drawPoint(event.offsetX, event.offsetY);
     this.xVals = [...this.xVals, event.offsetX];
-    this.yVals = [...this.yVals, event.offsetY];
+    this.yVals = [...this.yVals, Math.abs(event.offsetY - this.getCanvasSize)];
     this.generateChipsData();
   }
 
   // Clean all train data
   clearData() {
-    this.canvasCtx.clearRect(0, 0, 280, 280);
+    this.canvasCtx.clearRect(0, 0, this.getCanvasSize, this.getCanvasSize);
     this.xVals = [];
     this.yVals = [];
     this.chipsData = [];
-    this.scatterChartData[0].data = [];
+  }
+
+  //Plot methods
+  getPlotData(): number[] {
+    const data = [];
+    for (let i = 0; i < this.xVals.length; i++) {
+      data.push({ x: this.xVals[i], y: this.yVals[i] });
+    }
+    return data;
+  }
+
+  async generatePlotData() {
+    const plotData = this.getPlotData();
+    this.chartData =  {
+      datasets: [{
+        label: 'Training Data',
+        type: 'line',
+        showLine: false,
+        fill: false,
+        data: plotData,
+      },
+      {
+        label: 'Y = ' + this.mLin.dataSync()[0] + 'X + ' + this.bLin.dataSync()[0],
+        data: [
+          {
+            x: 0,
+            y: this.bLin.dataSync()[0]
+          },
+          {
+            x: 11,
+            y: 11 * this.mLin.dataSync()[0] + this.bLin.dataSync()[0]
+          }
+        ],
+        // Changes this dataset to become a line
+        type: 'line',
+        borderColor: 'red',
+        fill: false
+      }]
+    };
   }
 }

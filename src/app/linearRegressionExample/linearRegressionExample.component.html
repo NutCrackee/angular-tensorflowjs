@@ -1,12 +1,11 @@
+<!-- model configuration -->
 <div fxLayout="row" fxLayoutAlign="space-between center">
   <div class="model-configuration-container" fxLayout="column" fxLayoutAlign="start center">
     <mat-form-field class="example-full-width">
       <input matInput #postalCode maxlength="5" placeholder="Number of values" value="150" />
-      <mat-hint align="end">{{ postalCode.value.length }} / 5</mat-hint>
     </mat-form-field>
     <mat-form-field class="example-full-width">
-      <input matInput #postalCode maxlength="5" placeholder="Learning rate" value="0.1" />
-      <mat-hint align="end">{{ postalCode.value.length }} / 5</mat-hint>
+      <input matInput #postalCode maxlength="3" placeholder="Learning rate" value="{{learningRate}}" />
     </mat-form-field>
     <mat-form-field>
       <mat-label>Select an option</mat-label>
@@ -18,13 +17,15 @@
     </mat-form-field>
   </div>
   <div fxLayout="column" fxLayoutAlign="start center">
-    <canvas #canvas id="stage" width="280" height="280" style="border:1px solid #000000;"
+    <canvas #canvas id="stage" width="{{ getCanvasSize }}" height="{{ getCanvasSize }}" style="border:1px solid #000000;"
       (click)="canvasClicked($event)"></canvas>
   </div>
 </div>
-
-
-
+<div class="model-container" fxLayout="column" fxLayoutAlign="start center">
+  <p class="model-text"> Y = <span class="model-m-value">{{ getMValue }}</span>X + <span
+      class="model-b-value">{{ getBValue }}</span></p>
+</div>
+<!-- train-data-card -->
 <mat-card class="generated-data-container">
   <h3 class="no-left-mergin">Generated data</h3>
   <mat-card-content class="content-max-width">
@@ -41,79 +42,32 @@
     <div fxLayout="row" fxLayoutAlign="space-between start">
       <div>
         <mat-form-field class="input-values">
-          <input matInput type="number" placeholder="Number of values" width="5" min="2" (change)="changeNumberOfGeneratedValues($event)" value="{{numberOfGeneratedValues}}" max="15000">
+          <input matInput type="number" placeholder="Number of values" width="5" min="2"
+            (change)="changeNumberOfGeneratedValues($event)" value="{{numberOfGeneratedValues}}" max="15000">
         </mat-form-field>
         <button mat-raised-button color="primary" (click)="generateRandomData()">Generate data</button>
       </div>
-      <button mat-raised-button color="warn" (click)="clearData()">Clear data</button>
+      <div>
+        <button mat-raised-button color="warn" (click)="clearData()">Clear data</button>
+        <button mat-raised-button color="primary" (click)="trainLin($event)">Train model</button>
+      </div>
     </div>
   </mat-card-actions>
 </mat-card>
 
-
-
-
-<!-- <table style="border: 1px solid black">
-  <tr>
-    <td>X values:</td>
-    <td *ngFor="let xVal of xVals">{{ xVal }}</td>
-  </tr>
-
-  <tr>
-    <td>Y values:</td>
-    <td *ngFor="let yVal of yVals">{{ yVal }}</td>
-  </tr>
-</table> -->
-
+<!-- graph-result-card -->
+<mat-card class="generated-data-container">
+  <h3 class="no-left-mergin">Result</h3>
+  <mat-card-content class="content-max-width">
+      <div class="chart-wrapper">
+          <div><!-- //<div *ngIf="chart"> -->
+              <canvas #canvasResult>{{ chart }}</canvas>
+            </div>
+        </div>
+  </mat-card-content>
+</mat-card>
 
 <div fxLayout="row" fxLayoutAlign="space-between center">
-  <button mat-raised-button color="warn" (click)="clearData($event)">
-
-
-
-
-
-    Clear data
-  </button>
-
   TensorFlow says {{ prediction }}
   <input type="number" (change)="predictLinear($event.target.value)">
-  <button mat-raised-button color="warn" (click)="trainLin($event)">
-
-
-
-
-
-    Train model
-  </button>
-
-
-  <button mat-raised-button color="primary" (click)="generateRandomData($event)">
-    Generate
-  </button>
-  <button mat-raised-button color="primary" (click)="trainNewModel()">
-    Train model
-  </button>
-
-
-</div>
-
-
-
-
-
-<div style="margin-top: 18px;">
-
-
-
-  <div style="display: block;">
-    <canvas id="resultGraph"></canvas>
-  </div>
-
-
-
-
-
-
-
 </div>

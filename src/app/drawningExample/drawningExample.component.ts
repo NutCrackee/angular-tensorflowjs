@@ -53,7 +53,4 @@ export class DrawningExampleComponent implements OnInit {
     this.maxPredictionValue = 0;
     this.canvas.clearDraw();
   }
-
-
-
 }

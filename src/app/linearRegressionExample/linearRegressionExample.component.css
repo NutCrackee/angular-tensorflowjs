@@ -22,6 +22,29 @@
   width: 130px;
 }
 
+.model-m-value {
+  color: black;
+}
+
+.model-b-value {
+  color: black;
+}
+
+.model-container {
+  padding-top: 24px;
+}
+
+.model-text {
+  text-align: center;
+  padding-left: 16px;
+  padding: 16px;
+  border-radius: 16px;
+  border: 2px solid rgba(0, 0, 0, 0.85);
+  background-color: #f44336;;
+  font-size: 18px;
+  color: white;
+}
+
 .no-left-mergin {
   margin-left: 0px;
 }

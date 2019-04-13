@@ -40,7 +40,6 @@ export class ChartImageClassificationComponent implements OnChanges {
    barChartData: any;
 
   ngOnChanges() {
-    debugger;
     this.barChartLabels = this.data.map(record => record.className);
     this.data = this.data.map(record => record.probability);
 
