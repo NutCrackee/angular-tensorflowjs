@@ -1,0 +1,49 @@
+<mat-card class="drawing-card">
+  <mat-card-header>
+    <div mat-card-avatar class="example-header-image"></div>
+    <mat-card-title
+      >TensorflowJS drawing example with trained Python model</mat-card-title
+    >
+    <mat-card-subtitle>Draw a number in the canvas</mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
+    <div>
+      <div fxLayout="column" fxLayoutAlign="space-around center">
+        <canvas
+          class="drawingCanvas"
+          #drawingCanvas
+          width="300"
+          height="150"
+          drawable
+          (newImage)="predictNumber($event)"
+        ></canvas
+        ><br />
+        <div fxLayout="row" fxLayoutAlign="space-between center">
+          <button mat-raised-button color="warn" (click)="clearData()">
+            Erase Drawing
+          </button>
+        </div>
+      </div>
+    </div>
+  </mat-card-content>
+
+  <mat-card-header>
+    <div mat-card-avatar class="example-header-image"></div>
+    <mat-card-title>TensorFlowJS Number Prediction</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+ 
+   <div style="padding-left: 56px; padding-right: 56px;">
+    <span class="predictionText">
+      This number is with the most probability:  <span class="probability probability-value"> {{ maxPredictionValue }} %</span>
+    </span>
+    <span class="predictionText">
+        The drawn number should be:  <span class="probability probability-number"> {{ this.maxPredictionNumber }} </span>
+      </span>
+     <chart [data]="predictions"></chart>
+  </div>
+      
+  
+
+  </mat-card-content>
+</mat-card>

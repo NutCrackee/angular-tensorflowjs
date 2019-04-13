@@ -29,7 +29,6 @@ export class ChartComponent implements OnChanges {
                   }
               }]
       }
-
   };
 
    barChartLabels = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
@@ -38,10 +37,6 @@ export class ChartComponent implements OnChanges {
 
 
    barChartData: any;
-
-  //  barChartData = [
-  //   { data: this.data || [0, 0, 0, 0, 0, 0, 0, 0, 0, 0], label: 'Predictions' },
-  // ];
 
   ngOnChanges() {
     this.barChartData = [

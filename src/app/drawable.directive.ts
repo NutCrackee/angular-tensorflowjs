@@ -47,16 +47,17 @@ export class DrawableDirective implements OnInit {
             return;
         }
 
-        this.ctx.beginPath(); // begin
+        this.drawLine(e);
+    }
 
-        this.ctx.lineWidth = 9;
+    private drawLine(e: any) {
+        this.ctx.beginPath();
+        this.ctx.lineWidth = 15;
         this.ctx.lineCap = 'round';
         this.ctx.strokeStyle = '#111111';
-
         this.ctx.moveTo(this.pos.x, this.pos.y);
         this.setPosition(e);
         this.ctx.lineTo(this.pos.x, this.pos.y);
-
         this.ctx.stroke();
     }
 

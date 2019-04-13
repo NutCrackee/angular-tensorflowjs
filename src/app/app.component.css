@@ -1,10 +1,32 @@
-.example-card {
-    max-width: 800px;
-  }
-  
-  .example-header-image {
-    background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
-    background-size: cover;
-  }
+.list-header {
+  font-size: 20px;
+  font-weight: bold;
+}
 
-  td, th { border: 1px solid #CCC; } /* Add borders to cells */  
+.logo-technology {
+  margin-left: 24px;
+}
+
+.logo-container {
+  margin-top: 32px;
+}
+
+.ts-color {
+  color: rgb(255, 124, 0);;
+}
+
+.text-technologies {
+  text-align: center;
+  font-weight: bold;
+  text-align: center;
+  font-size: 12px;
+}
+.tab-menu {
+  font-size: 14px;
+  font-weight: bold;
+  padding-left: 12px;
+}
+
+.github-link {
+  padding-left: 12px;
+}

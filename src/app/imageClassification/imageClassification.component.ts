@@ -29,7 +29,7 @@ export class ImageClassificationComponent implements OnInit {
     // value of `predict`.
     // this.MobileNet.predict(tf.zeros([1, this.IMAGE_SIZE, this.IMAGE_SIZE, 3]));
 
-    // status('');
+    this.status('');
 
 
   }
@@ -97,7 +97,7 @@ export class ImageClassificationComponent implements OnInit {
   }
 
   async predict(imgElement: any) {
-    // status('Predicting...');
+    this.status('Predicting...');
 
   
 
@@ -108,7 +108,6 @@ export class ImageClassificationComponent implements OnInit {
     let startTime2;
     const logits = tf.tidy(() => {
       // tf.browser.fromPixels() returns a Tensor from an image element.
-      debugger;
       const img = tf.browser.fromPixels(imgElement).toFloat();
 
       const offset = tf.scalar(127.5);
@@ -127,8 +126,8 @@ export class ImageClassificationComponent implements OnInit {
     const classes = await this.getTopKClasses(logits, 10);
     const totalTime1 = performance.now() - startTime1;
     const totalTime2 = performance.now() - startTime2;
-    // status(`Done in ${Math.floor(totalTime1)} ms ` +
-    // `(not including preprocessing: ${Math.floor(totalTime2)} ms)`);
+    const msg: string = `Done in ${Math.floor(totalTime1)} ms (not including preprocessing: ${Math.floor(totalTime2)} ms)`;
+    this.status(msg);
 
     this.predictions = classes;
   }
@@ -148,4 +147,9 @@ export class ImageClassificationComponent implements OnInit {
       temporaryFileReader.readAsDataURL(inputFile);
     });
   }
+
+  status(msg: string) {
+    console.log(msg);
+  }
+
 }

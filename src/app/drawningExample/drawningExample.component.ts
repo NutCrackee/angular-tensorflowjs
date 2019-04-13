@@ -25,21 +25,22 @@ export class DrawningExampleComponent implements OnInit {
     this.model = await tf.loadLayersModel('../../assets/model.json');
   }
 
-  async predictDrawable(imageData: ImageData) {
+  async predictNumber(imageData: ImageData) {
     const pred = await tf.tidy(() => {
-      // Convert the canvas pixels to
+      // Konverze pixelu z platna
       const img = tf.browser.fromPixels(imageData, 1);
 
+      // Transformace obrazku na 28x28px
       const  imageResized = tf.reshape(img, [1, 28, 28, 1]);
-      // img = img.reshape([4]); // , 1]);
       const transformedValue = tf.cast(imageResized, 'float32');
-      // Make and format the predications
+
+      // Klasifikace obrazku
       const output = this.model.predict(transformedValue) as any;
 
-      // Save predictions on the component
+      // Ulozeni vysledku 
       this.predictions = Array.from(output.dataSync());
 
-
+      // Dodatecne informace
       const maxVal = Math.max(...this.predictions);
       this.maxPredictionNumber = this.predictions.indexOf(maxVal);
       this.maxPredictionValue = Number((maxVal * 100).toFixed(1));

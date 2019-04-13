@@ -15,6 +15,7 @@ import { ChartsModule } from 'ng2-charts';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatSliderModule } from '@angular/material/slider';
 import { MatSelectModule } from '@angular/material/select';
+import { MatListModule } from '@angular/material/list';
 
 import { DrawableDirective } from './drawable.directive';
 
@@ -46,6 +47,7 @@ import { ChartImageClassificationComponent } from './imageClassificationChart/ch
     MatExpansionModule,
     MatSliderModule,
     MatSelectModule,
+    MatListModule
   ],
   providers: [],
   bootstrap: [AppComponent]

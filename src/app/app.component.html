@@ -1,11 +1,62 @@
 <div fxLayout="row" fxLayoutAlign="center center">
+  <!-- [TABS] -->
   <mat-tab-group>
+    <!-- [tab-about] -->
     <mat-tab>
       <ng-template mat-tab-label>
-        <mat-icon class="example-tab-icon">trending_up</mat-icon>
-        Linear regresion example
+        <mat-icon class="ts-color">info</mat-icon>
+        <span class="tab-menu">About</span>
       </ng-template>
-      <mat-card class="example-card">
+      <mat-card>
+        <mat-card-content>
+          <h1 class="ts-color">TensorflowJS Examples</h1>
+          <p>This is just a sample application of usage TensorflowJS library </p>
+          <p>The application contains 3 examples and is part of the diploma thesis</p>
+          <mat-list>
+            <h2 class="list-header" mat-subheader>Included examples:</h2>
+            <mat-list-item class="small-item">
+              <mat-icon mat-list-icon class="ts-color">trending_up</mat-icon>
+              <h4 mat-line class="ts-color">Linear regression</h4>
+              <p mat-line> Train model with your data gathered from canvas</p>
+            </mat-list-item>
+            <mat-list-item>
+              <mat-icon mat-list-icon class="ts-color">format_paint</mat-icon>
+              <h4 mat-line class="ts-color">Number classification</h4>
+              <p mat-line> Pretrained model on MNIST database </p>
+            </mat-list-item>
+            <mat-list-item>
+              <mat-icon mat-list-icon class="ts-color">image_search</mat-icon>
+              <h4 mat-line class="ts-color">Image classification</h4>
+              <p mat-line> Pretrained MobilNet model </p>
+            </mat-list-item>
+          </mat-list>
+          <div fxLayout="row" fxLayoutAlign="center center">
+            <img src="../assets/kizi_logo.PNG" alt="VŠE KIZI Logo " />
+          </div>
+          <p class="text-technologies">This Application is build on these technologies:</p>
+          <div fxLayout="row" fxLayoutAlign="center center">
+            <img src="../assets/tensorflowjs.gif" alt="tensorflowjs-logo" />
+          </div>
+          <div class="logo-container" fxLayout="row" fxLayoutAlign="center center">
+            <img class="logo-technology" alt="angular-logo" src="../assets/angular.gif" />
+            <img class="logo-technology" alt="typescript-logo" src="../assets/typescript.gif" />
+            <img class="logo-technology" alt="charts-logo" src="../assets/chartjs.gif" />
+          </div>
+          <div class="logo-container" fxLayout="row" fxLayoutAlign="center center">
+              <img width="24" height="24" alt="github-logo" src="../assets/GitHub-Mark-32px.png" /> 
+              <a class="github-link" href="https://github.com/NutCrackee/angular-tensorflowjs">source code</a>
+          </div>
+          <p class="text-technologies">Pavel Nepomucký &copy; 2019 </p>
+        </mat-card-content>
+      </mat-card>
+    </mat-tab>
+    <!-- [tab-linear-regression] -->
+    <mat-tab>
+      <ng-template mat-tab-label>
+        <mat-icon class="ts-color">trending_up</mat-icon>
+        <span class="tab-menu">Linear regression</span>
+      </ng-template>
+      <mat-card>
         <mat-accordion>
           <mat-expansion-panel>
             <mat-expansion-panel-header>
@@ -20,28 +71,12 @@
             <div fxLayout="row" fxLayoutAlign="space-between center">
               <div fxLayout="column" fxLayoutAlign="start center">
                 <mat-form-field class="example-full-width">
-                  <input
-                    matInput
-                    #postalCode
-                    maxlength="5"
-                    placeholder="Number of values"
-                    value="150"
-                  />
-                  <mat-hint align="end"
-                    >{{ postalCode.value.length }} / 5</mat-hint
-                  >
+                  <input matInput #postalCode maxlength="5" placeholder="Number of values" value="150" />
+                  <mat-hint align="end">{{ postalCode.value.length }} / 5</mat-hint>
                 </mat-form-field>
                 <mat-form-field class="example-full-width">
-                  <input
-                    matInput
-                    #postalCode
-                    maxlength="5"
-                    placeholder="Learning rate"
-                    value="0.1"
-                  />
-                  <mat-hint align="end"
-                    >{{ postalCode.value.length }} / 5</mat-hint
-                  >
+                  <input matInput #postalCode maxlength="5" placeholder="Learning rate" value="0.1" />
+                  <mat-hint align="end">{{ postalCode.value.length }} / 5</mat-hint>
                 </mat-form-field>
                 <mat-form-field>
                   <mat-label>Select an option</mat-label>
@@ -53,21 +88,14 @@
                 </mat-form-field>
               </div>
               <div fxLayout="column" fxLayoutAlign="start center">
-                <canvas
-                  #canvas
-                  id="stage"
-                  width="280"
-                  height="280"
-                  style="border:1px solid #000000;"
-                  (click)="canvasClicked($event)"
-                ></canvas>
+                <canvas #canvas id="stage" width="280" height="280" style="border:1px solid #000000;"
+                  (click)="canvasClicked($event)"></canvas>
               </div>
             </div>
 
             <mat-accordion>
               <mat-expansion-panel
-                style="margin-top: 24px;margin-bottom: 24px; background-color: rgba(214, 214, 214, 0.25)"
-              >
+                style="margin-top: 24px;margin-bottom: 24px; background-color: rgba(214, 214, 214, 0.25)">
                 <mat-expansion-panel-header>
                   <mat-panel-title>
                     Generated data
@@ -89,29 +117,35 @@
             </mat-accordion>
 
             <div fxLayout="row" fxLayoutAlign="space-between center">
-              <button
-                mat-raised-button
-                color="warn"
-                (click)="clearData($event)"
-              >
+              <button mat-raised-button color="warn" (click)="clearData($event)">
+
+
+
+
+
                 Clear data
               </button>
-              <button
-                mat-raised-button
-                color="primary"
-                (click)="generujPico($event)"
-              >
-                Generate
-              </button>
-              <button
-                mat-raised-button
-                color="primary"
-                (click)="trainNewModel()"
-              >
+
+              TensorFlow says {{ prediction }}
+              <input type="number" (change)="predictLinear($event.target.value)">
+              <button mat-raised-button color="warn" (click)="trainLin($event)">
+
+
+
+
+
                 Train model
               </button>
 
-              
+
+              <button mat-raised-button color="primary" (click)="generujPico($event)">
+                Generate
+              </button>
+              <button mat-raised-button color="primary" (click)="trainNewModel()">
+                Train model
+              </button>
+
+
             </div>
           </mat-expansion-panel>
         </mat-accordion>
@@ -119,24 +153,24 @@
 
 
         <div style="margin-top: 18px;">
-        <mat-accordion>
+          <mat-accordion>
             <mat-expansion-panel>
               <mat-expansion-panel-header>
                 <mat-panel-title>
-                  Result Panel 
+                  Result Panel
                 </mat-panel-title>
                 <mat-panel-description>
                   Click to expand the panel
                 </mat-panel-description>
               </mat-expansion-panel-header>
-          
+
               <div style="display: block;">
-                  <canvas id="resultGraph"></canvas>
-                </div>
-                
+                <canvas id="resultGraph"></canvas>
+              </div>
 
 
-  
+
+
 
             </mat-expansion-panel>
           </mat-accordion>
@@ -145,23 +179,22 @@
 
       </mat-card>
     </mat-tab>
-
+    <!-- [tab-number-clasification] -->
     <mat-tab>
       <ng-template mat-tab-label>
-        <mat-icon class="example-tab-icon">format_paint</mat-icon>
-        Canvas drawing example
+        <mat-icon class="ts-color">format_paint</mat-icon>
+        <span class="tab-menu">Canvas drawing</span>
       </ng-template>
       <mat-card class="example-card">
         <app-drawning-example></app-drawning-example>
       </mat-card>
     </mat-tab>
-
+    <!-- [tab-image-clasification] -->
     <mat-tab>
       <ng-template mat-tab-label>
-        <mat-icon class="example-tab-icon">image_search</mat-icon>
-        Picture guessing example
+        <mat-icon class="ts-color">image_search</mat-icon>
+        <span class="tab-menu">Picture guessing</span>
       </ng-template>
-
       <app-image-classification></app-image-classification>
     </mat-tab>
   </mat-tab-group>
