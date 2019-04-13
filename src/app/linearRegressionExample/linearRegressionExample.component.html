@@ -1,49 +1,119 @@
-<mat-card class="drawing-card">
-  <mat-card-header>
-    <div mat-card-avatar class="example-header-image"></div>
-    <mat-card-title
-      >TensorflowJS drawing example with trained Python model</mat-card-title
-    >
-    <mat-card-subtitle>Draw a number in the canvas</mat-card-subtitle>
-  </mat-card-header>
-  <mat-card-content>
-    <div>
-      <div fxLayout="column" fxLayoutAlign="space-around center">
-        <canvas
-          class="drawingCanvas"
-          #drawingCanvas
-          width="300"
-          height="150"
-          drawable
-          (newImage)="predictNumber($event)"
-        ></canvas
-        ><br />
-        <div fxLayout="row" fxLayoutAlign="space-between center">
-          <button mat-raised-button color="warn" (click)="clearData()">
-            Erase Drawing
-          </button>
-        </div>
-      </div>
-    </div>
-  </mat-card-content>
-
-  <mat-card-header>
-    <div mat-card-avatar class="example-header-image"></div>
-    <mat-card-title>TensorFlowJS Number Prediction</mat-card-title>
-  </mat-card-header>
-  <mat-card-content>
- 
-   <div style="padding-left: 56px; padding-right: 56px;">
-    <span class="predictionText">
-      This number is with the most probability:  <span class="probability probability-value"> {{ maxPredictionValue }} %</span>
-    </span>
-    <span class="predictionText">
-        The drawn number should be:  <span class="probability probability-number"> {{ this.maxPredictionNumber }} </span>
-      </span>
-     <chart [data]="predictions"></chart>
+<div fxLayout="row" fxLayoutAlign="space-between center">
+  <div class="model-configuration-container" fxLayout="column" fxLayoutAlign="start center">
+    <mat-form-field class="example-full-width">
+      <input matInput #postalCode maxlength="5" placeholder="Number of values" value="150" />
+      <mat-hint align="end">{{ postalCode.value.length }} / 5</mat-hint>
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+      <input matInput #postalCode maxlength="5" placeholder="Learning rate" value="0.1" />
+      <mat-hint align="end">{{ postalCode.value.length }} / 5</mat-hint>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Select an option</mat-label>
+      <mat-select [(value)]="selected">
+        <mat-option>None</mat-option>
+        <mat-option value="1">SGD</mat-option>
+        <mat-option value="2">Adagrad</mat-option>
+      </mat-select>
+    </mat-form-field>
   </div>
-      
-  
+  <div fxLayout="column" fxLayoutAlign="start center">
+    <canvas #canvas id="stage" width="280" height="280" style="border:1px solid #000000;"
+      (click)="canvasClicked($event)"></canvas>
+  </div>
+</div>
 
+
+
+<mat-card class="generated-data-container">
+  <h3 class="no-left-mergin">Generated data</h3>
+  <mat-card-content class="content-max-width">
+    <mat-chip-list>
+      <mat-chip *ngFor="let chip of chipsData">
+        <span class="xValue-chip text-chip">x:{{ chip.xValue }}</span>
+        <span class="divider-chip text-chip"> | </span>
+        <span class="yValue-chip text-chip">y:{{ chip.yValue }}</span>
+      </mat-chip>
+    </mat-chip-list>
+    <p class="text-total-values">Total number of values: <span class="total-value">{{ chipsData.length }}</span></p>
   </mat-card-content>
+  <mat-card-actions>
+    <div fxLayout="row" fxLayoutAlign="space-between start">
+      <div>
+        <mat-form-field class="input-values">
+          <input matInput type="number" placeholder="Number of values" width="5" min="2" (change)="changeNumberOfGeneratedValues($event)" value="{{numberOfGeneratedValues}}" max="15000">
+        </mat-form-field>
+        <button mat-raised-button color="primary" (click)="generateRandomData()">Generate data</button>
+      </div>
+      <button mat-raised-button color="warn" (click)="clearData()">Clear data</button>
+    </div>
+  </mat-card-actions>
 </mat-card>
+
+
+
+
+<!-- <table style="border: 1px solid black">
+  <tr>
+    <td>X values:</td>
+    <td *ngFor="let xVal of xVals">{{ xVal }}</td>
+  </tr>
+
+  <tr>
+    <td>Y values:</td>
+    <td *ngFor="let yVal of yVals">{{ yVal }}</td>
+  </tr>
+</table> -->
+
+
+<div fxLayout="row" fxLayoutAlign="space-between center">
+  <button mat-raised-button color="warn" (click)="clearData($event)">
+
+
+
+
+
+    Clear data
+  </button>
+
+  TensorFlow says {{ prediction }}
+  <input type="number" (change)="predictLinear($event.target.value)">
+  <button mat-raised-button color="warn" (click)="trainLin($event)">
+
+
+
+
+
+    Train model
+  </button>
+
+
+  <button mat-raised-button color="primary" (click)="generateRandomData($event)">
+    Generate
+  </button>
+  <button mat-raised-button color="primary" (click)="trainNewModel()">
+    Train model
+  </button>
+
+
+</div>
+
+
+
+
+
+<div style="margin-top: 18px;">
+
+
+
+  <div style="display: block;">
+    <canvas id="resultGraph"></canvas>
+  </div>
+
+
+
+
+
+
+
+</div>

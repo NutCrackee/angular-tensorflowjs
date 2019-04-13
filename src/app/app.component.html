@@ -57,126 +57,14 @@
         <span class="tab-menu">Linear regression</span>
       </ng-template>
       <mat-card>
-        <mat-accordion>
-          <mat-expansion-panel>
-            <mat-expansion-panel-header>
-              <mat-panel-title>
-                Generate custom values
-              </mat-panel-title>
-              <mat-panel-description>
-                Click to expand the panel
-              </mat-panel-description>
-            </mat-expansion-panel-header>
-
-            <div fxLayout="row" fxLayoutAlign="space-between center">
-              <div fxLayout="column" fxLayoutAlign="start center">
-                <mat-form-field class="example-full-width">
-                  <input matInput #postalCode maxlength="5" placeholder="Number of values" value="150" />
-                  <mat-hint align="end">{{ postalCode.value.length }} / 5</mat-hint>
-                </mat-form-field>
-                <mat-form-field class="example-full-width">
-                  <input matInput #postalCode maxlength="5" placeholder="Learning rate" value="0.1" />
-                  <mat-hint align="end">{{ postalCode.value.length }} / 5</mat-hint>
-                </mat-form-field>
-                <mat-form-field>
-                  <mat-label>Select an option</mat-label>
-                  <mat-select [(value)]="selected">
-                    <mat-option>None</mat-option>
-                    <mat-option value="1">SGD</mat-option>
-                    <mat-option value="2">Adagrad</mat-option>
-                  </mat-select>
-                </mat-form-field>
-              </div>
-              <div fxLayout="column" fxLayoutAlign="start center">
-                <canvas #canvas id="stage" width="280" height="280" style="border:1px solid #000000;"
-                  (click)="canvasClicked($event)"></canvas>
-              </div>
-            </div>
-
-            <mat-accordion>
-              <mat-expansion-panel
-                style="margin-top: 24px;margin-bottom: 24px; background-color: rgba(214, 214, 214, 0.25)">
-                <mat-expansion-panel-header>
-                  <mat-panel-title>
-                    Generated data
-                  </mat-panel-title>
-                </mat-expansion-panel-header>
-
-                <table style="border: 1px solid black">
-                  <tr>
-                    <td>X values:</td>
-                    <td *ngFor="let xVal of xVals">{{ xVal }}</td>
-                  </tr>
-
-                  <tr>
-                    <td>Y values:</td>
-                    <td *ngFor="let yVal of yVals">{{ yVal }}</td>
-                  </tr>
-                </table>
-              </mat-expansion-panel>
-            </mat-accordion>
-
-            <div fxLayout="row" fxLayoutAlign="space-between center">
-              <button mat-raised-button color="warn" (click)="clearData($event)">
-
-
-
-
-
-                Clear data
-              </button>
-
-              TensorFlow says {{ prediction }}
-              <input type="number" (change)="predictLinear($event.target.value)">
-              <button mat-raised-button color="warn" (click)="trainLin($event)">
-
-
-
-
-
-                Train model
-              </button>
-
-
-              <button mat-raised-button color="primary" (click)="generujPico($event)">
-                Generate
-              </button>
-              <button mat-raised-button color="primary" (click)="trainNewModel()">
-                Train model
-              </button>
-
-
-            </div>
-          </mat-expansion-panel>
-        </mat-accordion>
-
-
-
-        <div style="margin-top: 18px;">
-          <mat-accordion>
-            <mat-expansion-panel>
-              <mat-expansion-panel-header>
-                <mat-panel-title>
-                  Result Panel
-                </mat-panel-title>
-                <mat-panel-description>
-                  Click to expand the panel
-                </mat-panel-description>
-              </mat-expansion-panel-header>
-
-              <div style="display: block;">
-                <canvas id="resultGraph"></canvas>
-              </div>
-
-
-
-
-
-            </mat-expansion-panel>
-          </mat-accordion>
-
-        </div>
-
+          <mat-card-header>
+              <mat-card-title>TensorflowJS linear regression example</mat-card-title>
+              <mat-card-subtitle>Train model with provided data and configure model
+              </mat-card-subtitle>
+          </mat-card-header>
+          <mat-card-content>
+              <app-linear-regression-example></app-linear-regression-example>
+          </mat-card-content>
       </mat-card>
     </mat-tab>
     <!-- [tab-number-clasification] -->

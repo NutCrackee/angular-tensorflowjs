@@ -16,9 +16,11 @@ import { MatExpansionModule } from '@angular/material/expansion';
 import { MatSliderModule } from '@angular/material/slider';
 import { MatSelectModule } from '@angular/material/select';
 import { MatListModule } from '@angular/material/list';
+import { MatChipsModule } from '@angular/material/chips';
 
 import { DrawableDirective } from './drawable.directive';
 
+import { LinearRegressionExampleComponent } from './linearRegressionExample/linearRegressionExample.component';
 import { DrawningExampleComponent } from './drawningExample/drawningExample.component';
 import { ImageClassificationComponent } from './imageClassification/imageClassification.component';
 import { ChartComponent } from './drawningExampleChart/chart.component';
@@ -28,6 +30,7 @@ import { ChartImageClassificationComponent } from './imageClassificationChart/ch
   declarations: [
     AppComponent,
     DrawableDirective,
+    LinearRegressionExampleComponent,
     DrawningExampleComponent,
     ImageClassificationComponent,
     ChartComponent,
@@ -47,7 +50,8 @@ import { ChartImageClassificationComponent } from './imageClassificationChart/ch
     MatExpansionModule,
     MatSliderModule,
     MatSelectModule,
-    MatListModule
+    MatListModule,
+    MatChipsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

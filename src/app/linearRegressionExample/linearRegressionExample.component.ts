@@ -4,6 +4,10 @@ import { Color, Label  } from 'ng2-charts';
 import { DrawableDirective } from '../drawable.directive';
 import * as tf from '@tensorflow/tfjs';
 
+interface IChip {
+  xValue: number;
+  yValue: number;
+}
 
 @Component({
   selector: 'app-linear-regression-example',
@@ -11,15 +15,16 @@ import * as tf from '@tensorflow/tfjs';
   styleUrls: ['./linearRegressionExample.component.css']
 })
 export class LinearRegressionExampleComponent implements OnInit {
-  xVals = [];
-  yVals = [];
-
+  // Train data
+  xVals: number[] = [];
+  yVals: number[] = [];
+  // Generating train data
+  numberOfGeneratedValues = 15;
+  chipsData: IChip[] = [];
   // Linear regresion START
   linearModel: tf.Sequential;
   prediction: any;
   // Linear regresion END
-
-  title = 'angular-tensorflowjs';
 
   @ViewChild('canvas') canvas: ElementRef;
   private canvasCtx: CanvasRenderingContext2D;
@@ -108,19 +113,7 @@ export class LinearRegressionExampleComponent implements OnInit {
     // }, 500);
   }
 
-  generateCustomValues(numberOfValues: number) {
-    for (let index = 0; index < numberOfValues; index++) {
-      // Return a random number between 1 and 250
-      const newXVal = parseFloat((Math.random() * 250 + 1).toFixed());
-      const newYVal = parseFloat((Math.random() * 250 + 1).toFixed());
-
-      this.xVals = [...this.xVals, newXVal];
-      this.yVals = [...this.yVals, newYVal];
-
-      this.drawPoint(newXVal, newYVal);
-      this.drawChart();
-    }
-  }
+  
 
 
   // loss funkce
@@ -137,39 +130,6 @@ export class LinearRegressionExampleComponent implements OnInit {
       return this.m.mul(x).add(this.b);
     });
   }
-
-
-  canvasClicked(event: any) {
-    this.drawPoint(event.offsetX, event.offsetY);
-    this.xVals = [...this.xVals, event.offsetX];
-    this.yVals = [...this.yVals, event.offsetY];
-  }
-
-  generujPico(event: any) {
-    this.generateCustomValues(15);
-  }
-
-  clearData(event: any) {
-    this.canvasCtx.clearRect(0, 0, 280, 280);
-    this.xVals = [];
-    this.yVals = [];
-    this.scatterChartData[0].data = [];
-  }
-
-  drawPoint(x: number, y: number) {
-    this.getCanvasCtx.fillStyle = '#FF0000';
-    this.getCanvasCtx.fillRect(x, y, 3, 4);
-  }
-
-  drawChart() {
-    const newData = [];
-    for (let index = 0; index < this.xVals.length; index++) {
-      newData.push({ x: this.xVals[index], y: this.yVals[index]});
-    }
-    this.scatterChartData[0].data = newData;
-  }
-
-
 
   // FUCK THIS :D
   mLin = tf.variable(tf.scalar(Math.random()));
@@ -235,5 +195,72 @@ export class LinearRegressionExampleComponent implements OnInit {
   // }
 
 
+  generateChipsData(): void  {
+    const mergedData = [...this.xVals, ...this.yVals];
+    if (mergedData.length % 2 === 0) {
+      this.chipsData = [];
+      for (let index = 0; index < (mergedData.length / 2); index++) {
+        const nextChipData = {
+          xValue: mergedData[index],
+          yValue: mergedData[mergedData.length / 2 + index]
+        };
+        this.chipsData = [...this.chipsData, nextChipData];
+      }
+    } else {
+      console.warn('Cannot generate train data. Xs and Ys values has different length');
+    }
+  }
 
+  changeNumberOfGeneratedValues(event: any): void {
+    this.numberOfGeneratedValues = Number(event.target.value);
+  }
+
+  generateRandomData() {
+    this.generateCustomValues(this.numberOfGeneratedValues);
+  }
+
+  // Canvas methods
+  generateCustomValues(numberOfValues: number) {
+    for (let index = 0; index < numberOfValues; index++) {
+      // Return a random number between 1 and 250 according to size of the canvas
+      const newXVal = parseFloat((Math.random() * 250 + 1).toFixed());
+      const newYVal = parseFloat((Math.random() * 250 + 1).toFixed());
+
+      this.xVals = [...this.xVals, newXVal];
+      this.yVals = [...this.yVals, newYVal];
+
+      this.drawPoint(newXVal, newYVal);
+      this.drawChart();
+    }
+    this.generateChipsData();
+  }
+
+  drawPoint(x: number, y: number) {
+    this.getCanvasCtx.fillStyle = '#FF0000';
+    this.getCanvasCtx.fillRect(x, y, 3, 4);
+  }
+
+  drawChart() {
+    const newData = [];
+    for (let index = 0; index < this.xVals.length; index++) {
+      newData.push({ x: this.xVals[index], y: this.yVals[index]});
+    }
+    this.scatterChartData[0].data = newData;
+  }
+
+  canvasClicked(event: any) {
+    this.drawPoint(event.offsetX, event.offsetY);
+    this.xVals = [...this.xVals, event.offsetX];
+    this.yVals = [...this.yVals, event.offsetY];
+    this.generateChipsData();
+  }
+
+  // Clean all train data
+  clearData() {
+    this.canvasCtx.clearRect(0, 0, 280, 280);
+    this.xVals = [];
+    this.yVals = [];
+    this.chipsData = [];
+    this.scatterChartData[0].data = [];
+  }
 }
