@@ -1,4 +1,4 @@
-import { Component, OnInit, ElementRef, ViewChild, ViewChildren } from '@angular/core';
+import { Component, ElementRef, ViewChild, ViewChildren, OnInit } from '@angular/core';
 import { Chart } from 'chart.js';
 import { DrawableDirective } from '../drawable.directive';
 import * as tf from '@tensorflow/tfjs';
@@ -14,45 +14,30 @@ interface IChip {
   styleUrls: ['./linearRegressionExample.component.css']
 })
 export class LinearRegressionExampleComponent implements OnInit {
+ 
   // Train data
   xVals: number[] = [
-    3.3,
-    4.4,
-    5.5,
-    6.71,
-    6.93,
-    4.168,
-    9.779,
-    6.182,
-    7.59,
-    2.167,
-    7.042,
-    10.791,
-    5.313,
-    7.997,
-    5.654,
-    9.27,
-    3.1
-  ];
+    42,
+    58,
+    96,
+    120,
+    158,
+    179,
+    202,
+    226,
+    242,
+    255,
+    ];
   yVals: number[] = [
-    1.7,
-    2.76,
-    2.09,
-    3.19,
-    1.694,
-    1.573,
-    3.366,
-    2.596,
-    2.53,
-    1.221,
-    2.827,
-    3.465,
-    1.65,
-    2.904,
-    2.42,
-    2.94,
-    1.3
-  ];
+    30,
+  44,
+  82,
+  107,
+  134,
+  154,
+  175,
+  196, 211, 222
+    ];
   learningRate = 0.1;
   // Generating train data
   private canvasSize = 320;
@@ -88,97 +73,55 @@ export class LinearRegressionExampleComponent implements OnInit {
   }
 
   public get getMValue(): string {
-    if ( this.mLin !== undefined ) {
-      return this.mLin.dataSync()[0].toFixed(4).toString();
+    if ( this.m !== undefined ) {
+      return this.m.dataSync()[0].toFixed(4).toString();
     }
     return '?';
   }
 
   public get getBValue(): string {
-    if ( this.bLin !== undefined ) {
-      return this.bLin.dataSync()[0].toFixed(4).toString();
+    if ( this.b !== undefined ) {
+      return this.b.dataSync()[0].toFixed(4).toString();
     }
     return '?';
   }
 
+  //predictionsBefore = this.predictLin(tf.tensor1d(this.xVals));
 
   @ViewChild(DrawableDirective) drawableCanvas;
 
-  // y = mx + b
-  // m = tf.variable(tf.scalar(Math.random()));
-  // b = tf.variable(tf.scalar(Math.random()));
+  m = tf.variable(tf.scalar(Math.random()));
+  b = tf.variable(tf.scalar(Math.random()));
 
-  // Opimalizace modelu
-  optimizer = tf.train.sgd(this.learningRate);
 
-  ngOnInit() {
-    this.init();
-    //this.trainLinear();
+  ngOnInit(): void {
+    this.generateChipsData();
   }
-
-    
-
-  init() {
-    if (this.yVals.length > 0) {
-    const yValsTensor = tf.tensor1d(this.yVals);
-    //this.loss(this.xVals, yValsTensor);
-  }
-
-    // setInterval( () => {
-    //   this.m.print();
-    //   this.b.print();
-    //   console.log(tf.memory().numTensors);
-    // }, 500);
-  }
-
   
-
-
-  // loss funkce
-    loss(prediction, labels) {
-    // subtracts the two arrays & squares each element of the tensor then finds the mean. 
-    const error = prediction.sub(labels).square().mean();
-    return error;
-  }
-
-
-
   predict(x) {
-    return tf.tidy(function() {
+    return tf.tidy(() => {
       return this.m.mul(x).add(this.b);
     });
   }
 
-  // FUCK THIS :D
-  mLin = tf.variable(tf.scalar(Math.random()));
-  bLin = tf.variable(tf.scalar(Math.random()));
-
-  //predictionsBefore = this.predictLin(tf.tensor1d(this.xVals));
-
-  predictLin(x) {
-    return tf.tidy(() => {
-      return this.mLin.mul(x).add(this.bLin);
-    });
-  }
-
-  // subtracts the two arrays & squares each element of the tensor then finds the mean.
-  lossLin(prediction, labels) {
+  loss(prediction, labels) {
     const error = prediction.sub(labels).square().mean();
     return error;
   }
 
-  async trainLin() {
+  async train() {
     const optimizer = tf.train.sgd(this.learningRate);
-    optimizer.minimize(()  => {
-        const predsYs = this.predictLin(tf.tensor1d(this.xVals));
-        console.log('prediction Y function result:', predsYs);
-        const stepLoss = this.lossLin(predsYs, tf.tensor1d(this.yVals))
-        console.log('loss function result:', stepLoss.dataSync()[0]);
-        return stepLoss;
-    });
-    console.log(this.mLin.print());
-    console.log(this.bLin.print());
+    const errors = [];
 
+    for (let iter = 0; iter < 5000; iter++) {
+      optimizer.minimize(()  => {
+          const predsYs = this.predict(tf.tensor1d(this.xVals));
+          const stepLoss = this.loss(predsYs, tf.tensor1d(this.yVals));
+          errors.push(stepLoss);
+          return stepLoss;
+      });
+    }
+debugger;
     await this.generatePlotData();
 
     const ctx = this.getCanvasResultCtx; //this.getCanvasResultCtx;
@@ -197,39 +140,6 @@ export class LinearRegressionExampleComponent implements OnInit {
       }
     });
   }
-
-
-  // async trainLinear(): Promise<any> {
-  //     // Define a model for linear regression.
-  //     debugger;
-  //     this.linearModel = tf.sequential();
-  //     this.linearModel.add(tf.layers.dense({units: 1, inputShape: [1]}));
-
-  //     // Prepare the model for training: Specify the loss and the optimizer.
-  //     this.linearModel.compile({loss: 'meanSquaredError', optimizer: 'sgd'});
-
-
-  //     // Training data, completely random stuff
-  //     debugger;
-
-  //     const trainingDataX = this.xVals.length > 0 ? this.xVals : [3.2, 4.4, 5.5];
-  //     const trainingDataY = this.yVals.length > 0 ? this.yVals : [1.6, 2.7, 3.5];
-
-  //     const xs = tf.tensor1d(trainingDataX);
-  //     const ys = tf.tensor1d(trainingDataY);
-
-  //     // Train
-  //     await this.linearModel.fit(xs, ys)
-
-  //     console.log('model trained!')
-  // }
-
-  // predictLinear(val: string) {
-  //   const valFloat = parseFloat(val);
-  //   const output = this.linearModel.predict(tf.tensor2d([valFloat], [1, 1])) as any;
-  //   this.prediction = Array.from(output.dataSync())[0];
-  // }
-
 
   generateChipsData(): void  {
     const mergedData = [...this.xVals, ...this.yVals];
@@ -298,7 +208,7 @@ export class LinearRegressionExampleComponent implements OnInit {
     this.chipsData = [];
   }
 
-  //Plot methods
+  // Plot methods
   getPlotData(): number[] {
     const data = [];
     for (let i = 0; i < this.xVals.length; i++) {
@@ -318,15 +228,15 @@ export class LinearRegressionExampleComponent implements OnInit {
         data: plotData,
       },
       {
-        label: 'Y = ' + this.mLin.dataSync()[0] + 'X + ' + this.bLin.dataSync()[0],
+        label: 'Y = ' + this.m.dataSync()[0] + 'X + ' + this.b.dataSync()[0],
         data: [
           {
             x: 0,
-            y: this.bLin.dataSync()[0]
+            y: this.b.dataSync()[0]
           },
           {
-            x: 11,
-            y: 11 * this.mLin.dataSync()[0] + this.bLin.dataSync()[0]
+            x: Math.max(...this.xVals),
+            y: Math.max(...this.xVals) * this.m.dataSync()[0] + this.b.dataSync()[0]
           }
         ],
         // Changes this dataset to become a line

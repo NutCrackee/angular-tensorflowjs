@@ -350,7 +350,7 @@ var AppRoutingModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".example-card {\r\n    max-width: 800px;\r\n  }\r\n  \r\n  .example-header-image {\r\n    background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');\r\n    background-size: cover;\r\n  }\r\n  \r\n  td, th { border: 1px solid #CCC; }\r\n  \r\n  /* Add borders to cells */  \r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvYXBwLmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7SUFDSSxnQkFBZ0I7RUFDbEI7O0VBRUE7SUFDRSxtRkFBbUY7SUFDbkYsc0JBQXNCO0VBQ3hCOztFQUVBLFNBQVMsc0JBQXNCLEVBQUU7O0VBQUUseUJBQXlCIiwiZmlsZSI6InNyYy9hcHAvYXBwLmNvbXBvbmVudC5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyIuZXhhbXBsZS1jYXJkIHtcclxuICAgIG1heC13aWR0aDogODAwcHg7XHJcbiAgfVxyXG4gIFxyXG4gIC5leGFtcGxlLWhlYWRlci1pbWFnZSB7XHJcbiAgICBiYWNrZ3JvdW5kLWltYWdlOiB1cmwoJ2h0dHBzOi8vbWF0ZXJpYWwuYW5ndWxhci5pby9hc3NldHMvaW1nL2V4YW1wbGVzL3NoaWJhMS5qcGcnKTtcclxuICAgIGJhY2tncm91bmQtc2l6ZTogY292ZXI7XHJcbiAgfVxyXG5cclxuICB0ZCwgdGggeyBib3JkZXI6IDFweCBzb2xpZCAjQ0NDOyB9IC8qIEFkZCBib3JkZXJzIHRvIGNlbGxzICovICAiXX0= */"
+module.exports = ".list-header {\r\n  font-size: 20px;\r\n  font-weight: bold;\r\n}\r\n\r\n.logo-technology {\r\n  margin-left: 24px;\r\n}\r\n\r\n.logo-container {\r\n  margin-top: 32px;\r\n}\r\n\r\n.ts-color {\r\n  color: rgb(255, 124, 0);;\r\n}\r\n\r\n.text-technologies {\r\n  text-align: center;\r\n  font-weight: bold;\r\n  text-align: center;\r\n  font-size: 12px;\r\n}\r\n\r\n.tab-menu {\r\n  font-size: 14px;\r\n  font-weight: bold;\r\n  padding-left: 12px;\r\n}\r\n\r\n.github-link {\r\n  padding-left: 12px;\r\n}\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvYXBwLmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDRSxlQUFlO0VBQ2YsaUJBQWlCO0FBQ25COztBQUVBO0VBQ0UsaUJBQWlCO0FBQ25COztBQUVBO0VBQ0UsZ0JBQWdCO0FBQ2xCOztBQUVBO0VBQ0UsdUJBQXVCO0FBQ3pCOztBQUVBO0VBQ0Usa0JBQWtCO0VBQ2xCLGlCQUFpQjtFQUNqQixrQkFBa0I7RUFDbEIsZUFBZTtBQUNqQjs7QUFDQTtFQUNFLGVBQWU7RUFDZixpQkFBaUI7RUFDakIsa0JBQWtCO0FBQ3BCOztBQUVBO0VBQ0Usa0JBQWtCO0FBQ3BCIiwiZmlsZSI6InNyYy9hcHAvYXBwLmNvbXBvbmVudC5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyIubGlzdC1oZWFkZXIge1xyXG4gIGZvbnQtc2l6ZTogMjBweDtcclxuICBmb250LXdlaWdodDogYm9sZDtcclxufVxyXG5cclxuLmxvZ28tdGVjaG5vbG9neSB7XHJcbiAgbWFyZ2luLWxlZnQ6IDI0cHg7XHJcbn1cclxuXHJcbi5sb2dvLWNvbnRhaW5lciB7XHJcbiAgbWFyZ2luLXRvcDogMzJweDtcclxufVxyXG5cclxuLnRzLWNvbG9yIHtcclxuICBjb2xvcjogcmdiKDI1NSwgMTI0LCAwKTs7XHJcbn1cclxuXHJcbi50ZXh0LXRlY2hub2xvZ2llcyB7XHJcbiAgdGV4dC1hbGlnbjogY2VudGVyO1xyXG4gIGZvbnQtd2VpZ2h0OiBib2xkO1xyXG4gIHRleHQtYWxpZ246IGNlbnRlcjtcclxuICBmb250LXNpemU6IDEycHg7XHJcbn1cclxuLnRhYi1tZW51IHtcclxuICBmb250LXNpemU6IDE0cHg7XHJcbiAgZm9udC13ZWlnaHQ6IGJvbGQ7XHJcbiAgcGFkZGluZy1sZWZ0OiAxMnB4O1xyXG59XHJcblxyXG4uZ2l0aHViLWxpbmsge1xyXG4gIHBhZGRpbmctbGVmdDogMTJweDtcclxufSJdfQ== */"
 
 /***/ }),
 
@@ -361,7 +361,7 @@ module.exports = ".example-card {\r\n    max-width: 800px;\r\n  }\r\n  \r\n  .ex
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div fxLayout=\"row\" fxLayoutAlign=\"center center\">\r\n  <mat-tab-group>\r\n    <mat-tab>\r\n      <ng-template mat-tab-label>\r\n        <mat-icon class=\"example-tab-icon\">trending_up</mat-icon>\r\n        Linear regresion example\r\n      </ng-template>\r\n      <mat-card class=\"example-card\">\r\n        <mat-accordion>\r\n          <mat-expansion-panel>\r\n            <mat-expansion-panel-header>\r\n              <mat-panel-title>\r\n                Generate custom values\r\n              </mat-panel-title>\r\n              <mat-panel-description>\r\n                Click to expand the panel\r\n              </mat-panel-description>\r\n            </mat-expansion-panel-header>\r\n\r\n            <div fxLayout=\"row\" fxLayoutAlign=\"space-between center\">\r\n              <div fxLayout=\"column\" fxLayoutAlign=\"start center\">\r\n                <mat-form-field class=\"example-full-width\">\r\n                  <input\r\n                    matInput\r\n                    #postalCode\r\n                    maxlength=\"5\"\r\n                    placeholder=\"Number of values\"\r\n                    value=\"150\"\r\n                  />\r\n                  <mat-hint align=\"end\"\r\n                    >{{ postalCode.value.length }} / 5</mat-hint\r\n                  >\r\n                </mat-form-field>\r\n                <mat-form-field class=\"example-full-width\">\r\n                  <input\r\n                    matInput\r\n                    #postalCode\r\n                    maxlength=\"5\"\r\n                    placeholder=\"Learning rate\"\r\n                    value=\"0.1\"\r\n                  />\r\n                  <mat-hint align=\"end\"\r\n                    >{{ postalCode.value.length }} / 5</mat-hint\r\n                  >\r\n                </mat-form-field>\r\n                <mat-form-field>\r\n                  <mat-label>Select an option</mat-label>\r\n                  <mat-select [(value)]=\"selected\">\r\n                    <mat-option>None</mat-option>\r\n                    <mat-option value=\"1\">SGD</mat-option>\r\n                    <mat-option value=\"2\">Adagrad</mat-option>\r\n                  </mat-select>\r\n                </mat-form-field>\r\n              </div>\r\n              <div fxLayout=\"column\" fxLayoutAlign=\"start center\">\r\n                <canvas\r\n                  #canvas\r\n                  id=\"stage\"\r\n                  width=\"280\"\r\n                  height=\"280\"\r\n                  style=\"border:1px solid #000000;\"\r\n                  (click)=\"canvasClicked($event)\"\r\n                ></canvas>\r\n              </div>\r\n            </div>\r\n\r\n            <mat-accordion>\r\n              <mat-expansion-panel\r\n                style=\"margin-top: 24px;margin-bottom: 24px; background-color: rgba(214, 214, 214, 0.25)\"\r\n              >\r\n                <mat-expansion-panel-header>\r\n                  <mat-panel-title>\r\n                    Generated data\r\n                  </mat-panel-title>\r\n                </mat-expansion-panel-header>\r\n\r\n                <table style=\"border: 1px solid black\">\r\n                  <tr>\r\n                    <td>X values:</td>\r\n                    <td *ngFor=\"let xVal of xVals\">{{ xVal }}</td>\r\n                  </tr>\r\n\r\n                  <tr>\r\n                    <td>Y values:</td>\r\n                    <td *ngFor=\"let yVal of yVals\">{{ yVal }}</td>\r\n                  </tr>\r\n                </table>\r\n              </mat-expansion-panel>\r\n            </mat-accordion>\r\n\r\n            <div fxLayout=\"row\" fxLayoutAlign=\"space-between center\">\r\n              <button\r\n                mat-raised-button\r\n                color=\"warn\"\r\n                (click)=\"clearData($event)\"\r\n              >\r\n                Clear data\r\n              </button>\r\n              <button\r\n                mat-raised-button\r\n                color=\"primary\"\r\n                (click)=\"generujPico($event)\"\r\n              >\r\n                Generate\r\n              </button>\r\n              <button\r\n                mat-raised-button\r\n                color=\"primary\"\r\n                (click)=\"trainNewModel()\"\r\n              >\r\n                Train model\r\n              </button>\r\n\r\n              \r\n            </div>\r\n          </mat-expansion-panel>\r\n        </mat-accordion>\r\n\r\n\r\n\r\n        <div style=\"margin-top: 18px;\">\r\n        <mat-accordion>\r\n            <mat-expansion-panel>\r\n              <mat-expansion-panel-header>\r\n                <mat-panel-title>\r\n                  Result Panel \r\n                </mat-panel-title>\r\n                <mat-panel-description>\r\n                  Click to expand the panel\r\n                </mat-panel-description>\r\n              </mat-expansion-panel-header>\r\n          \r\n              <div style=\"display: block;\">\r\n                  <canvas id=\"resultGraph\"></canvas>\r\n                </div>\r\n                \r\n\r\n\r\n  \r\n\r\n            </mat-expansion-panel>\r\n          </mat-accordion>\r\n\r\n        </div>\r\n\r\n      </mat-card>\r\n    </mat-tab>\r\n\r\n    <mat-tab>\r\n      <ng-template mat-tab-label>\r\n        <mat-icon class=\"example-tab-icon\">format_paint</mat-icon>\r\n        Canvas drawing example\r\n      </ng-template>\r\n      <mat-card class=\"example-card\">\r\n        <app-drawning-example></app-drawning-example>\r\n      </mat-card>\r\n    </mat-tab>\r\n\r\n    <mat-tab>\r\n      <ng-template mat-tab-label>\r\n        <mat-icon class=\"example-tab-icon\">image_search</mat-icon>\r\n        Picture guessing example\r\n      </ng-template>\r\n\r\n      <app-image-classification></app-image-classification>\r\n    </mat-tab>\r\n  </mat-tab-group>\r\n\r\n  <router-outlet></router-outlet>\r\n</div>\r\n"
+module.exports = "<div fxLayout=\"row\" fxLayoutAlign=\"center center\">\r\n  <!-- [TABS] -->\r\n  <mat-tab-group>\r\n    <!-- [tab-about] -->\r\n    <mat-tab>\r\n      <ng-template mat-tab-label>\r\n        <mat-icon class=\"ts-color\">info</mat-icon>\r\n        <span class=\"tab-menu\">About</span>\r\n      </ng-template>\r\n      <mat-card>\r\n        <mat-card-content>\r\n          <h1 class=\"ts-color\">TensorflowJS Examples</h1>\r\n          <p>This is just a sample application of usage TensorflowJS library </p>\r\n          <p>The application contains 3 examples and is part of the diploma thesis</p>\r\n          <mat-list>\r\n            <h2 class=\"list-header\" mat-subheader>Included examples:</h2>\r\n            <mat-list-item class=\"small-item\">\r\n              <mat-icon mat-list-icon class=\"ts-color\">trending_up</mat-icon>\r\n              <h4 mat-line class=\"ts-color\">Linear regression</h4>\r\n              <p mat-line> Train model with your data gathered from canvas</p>\r\n            </mat-list-item>\r\n            <mat-list-item>\r\n              <mat-icon mat-list-icon class=\"ts-color\">format_paint</mat-icon>\r\n              <h4 mat-line class=\"ts-color\">Number classification</h4>\r\n              <p mat-line> Pretrained model on MNIST database </p>\r\n            </mat-list-item>\r\n            <mat-list-item>\r\n              <mat-icon mat-list-icon class=\"ts-color\">image_search</mat-icon>\r\n              <h4 mat-line class=\"ts-color\">Image classification</h4>\r\n              <p mat-line> Pretrained MobilNet model </p>\r\n            </mat-list-item>\r\n          </mat-list>\r\n          <div fxLayout=\"row\" fxLayoutAlign=\"center center\">\r\n            <img src=\"../assets/kizi_logo.PNG\" alt=\"VŠE KIZI Logo \" />\r\n          </div>\r\n          <p class=\"text-technologies\">This Application is build on these technologies:</p>\r\n          <div fxLayout=\"row\" fxLayoutAlign=\"center center\">\r\n            <img src=\"../assets/tensorflowjs.gif\" alt=\"tensorflowjs-logo\" />\r\n          </div>\r\n          <div class=\"logo-container\" fxLayout=\"row\" fxLayoutAlign=\"center center\">\r\n            <img class=\"logo-technology\" alt=\"angular-logo\" src=\"../assets/angular.gif\" />\r\n            <img class=\"logo-technology\" alt=\"typescript-logo\" src=\"../assets/typescript.gif\" />\r\n            <img class=\"logo-technology\" alt=\"charts-logo\" src=\"../assets/chartjs.gif\" />\r\n          </div>\r\n          <div class=\"logo-container\" fxLayout=\"row\" fxLayoutAlign=\"center center\">\r\n              <img width=\"24\" height=\"24\" alt=\"github-logo\" src=\"../assets/GitHub-Mark-32px.png\" /> \r\n              <a class=\"github-link\" href=\"https://github.com/NutCrackee/angular-tensorflowjs\">source code</a>\r\n          </div>\r\n          <p class=\"text-technologies\">Pavel Nepomucký &copy; 2019 </p>\r\n        </mat-card-content>\r\n      </mat-card>\r\n    </mat-tab>\r\n    <!-- [tab-linear-regression] -->\r\n    <mat-tab>\r\n      <ng-template mat-tab-label>\r\n        <mat-icon class=\"ts-color\">trending_up</mat-icon>\r\n        <span class=\"tab-menu\">Linear regression</span>\r\n      </ng-template>\r\n      <mat-card>\r\n          <mat-card-header>\r\n              <mat-card-title>TensorflowJS linear regression example</mat-card-title>\r\n              <mat-card-subtitle>Train model with provided data and configure model\r\n              </mat-card-subtitle>\r\n          </mat-card-header>\r\n          <mat-card-content>\r\n              <app-linear-regression-example></app-linear-regression-example>\r\n          </mat-card-content>\r\n      </mat-card>\r\n    </mat-tab>\r\n    <!-- [tab-number-clasification] -->\r\n    <mat-tab>\r\n      <ng-template mat-tab-label>\r\n        <mat-icon class=\"ts-color\">format_paint</mat-icon>\r\n        <span class=\"tab-menu\">Canvas drawing</span>\r\n      </ng-template>\r\n      <mat-card class=\"example-card\">\r\n        <app-drawning-example></app-drawning-example>\r\n      </mat-card>\r\n    </mat-tab>\r\n    <!-- [tab-image-clasification] -->\r\n    <mat-tab>\r\n      <ng-template mat-tab-label>\r\n        <mat-icon class=\"ts-color\">image_search</mat-icon>\r\n        <span class=\"tab-menu\">Picture guessing</span>\r\n      </ng-template>\r\n      <app-image-classification></app-image-classification>\r\n    </mat-tab>\r\n  </mat-tab-group>\r\n\r\n  <router-outlet></router-outlet>\r\n</div>"
 
 /***/ }),
 
@@ -377,7 +377,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AppComponent", function() { return AppComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var _app_drawningExample_drawningExample_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../app/drawningExample/drawningExample.component */ "./src/app/drawningExample/drawningExample.component.ts");
+/* harmony import */ var _drawable_directive__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./drawable.directive */ "./src/app/drawable.directive.ts");
 /* harmony import */ var _tensorflow_tfjs__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @tensorflow/tfjs */ "./node_modules/@tensorflow/tfjs/dist/tf.esm.js");
 
 
@@ -387,6 +387,7 @@ var AppComponent = /** @class */ (function () {
     function AppComponent() {
         this.xVals = [];
         this.yVals = [];
+        // Linear regresion END
         this.title = 'angular-tensorflowjs';
         // y = mx + b
         this.m = _tensorflow_tfjs__WEBPACK_IMPORTED_MODULE_3__["variable"](_tensorflow_tfjs__WEBPACK_IMPORTED_MODULE_3__["scalar"](Math.random()));
@@ -394,19 +395,10 @@ var AppComponent = /** @class */ (function () {
         // Opimalizace modelu
         this.learningRate = 0.1;
         this.optimizer = _tensorflow_tfjs__WEBPACK_IMPORTED_MODULE_3__["train"].sgd(this.learningRate);
-        // DRAWABLE PROPERTIES EN D
         this.lineChartData = [
-            { data: [1, 2, 3, 4, 5, 6, 7], label: 'Series A' }
+            { data: [1, 2, 3, 4, 5, 6, 7], label: 'Series A' },
         ];
-        this.lineChartLabels = [
-            'January',
-            'February',
-            'March',
-            'April',
-            'May',
-            'June',
-            'July'
-        ];
+        this.lineChartLabels = ['January', 'February', 'March', 'April', 'May', 'June', 'July'];
         this.lineChartOptions = {
             responsive: true,
             legend: {
@@ -416,12 +408,12 @@ var AppComponent = /** @class */ (function () {
         this.lineChartColors = [
             {
                 // borderColor: 'black',
-                backgroundColor: 'rgb(244, 67, 54)'
-            }
+                backgroundColor: 'rgb(244, 67, 54)',
+            },
         ];
         // First tab chart
         this.scatterChartOptions = {
-            responsive: true
+            responsive: true,
         };
         this.scatterChartType = 'scatter';
         this.scatterChartData = [
@@ -431,28 +423,54 @@ var AppComponent = /** @class */ (function () {
                     { x: 2, y: 3 },
                     { x: 3, y: -2 },
                     { x: 4, y: 4 },
-                    { x: 5, y: -3, r: 20 }
+                    { x: 5, y: -3, r: 20 },
                 ],
                 type: 'line',
                 label: 'Generated Data',
-                pointRadius: 3
+                pointRadius: 3,
             },
             {
                 type: 'line',
                 label: 'Data',
-                data: [{ x: 0, y: 0 }, { x: 250, y: 250 }],
-                pointRadius: 3
+                data: [
+                    { x: 0, y: 0 },
+                    { x: 250, y: 250 },
+                ],
+                pointRadius: 3,
             }
         ];
         this.lineChartType = 'line';
         this.lineChartPlugins = [];
-        // DRAWABLE LOGIC END !!!!
+        // FUCK THIS :D
+        this.mLin = _tensorflow_tfjs__WEBPACK_IMPORTED_MODULE_3__["variable"](_tensorflow_tfjs__WEBPACK_IMPORTED_MODULE_3__["scalar"](Math.random()));
+        this.bLin = _tensorflow_tfjs__WEBPACK_IMPORTED_MODULE_3__["variable"](_tensorflow_tfjs__WEBPACK_IMPORTED_MODULE_3__["scalar"](Math.random()));
+        // async trainLinear(): Promise<any> {
+        //     // Define a model for linear regression.
+        //     debugger;
+        //     this.linearModel = tf.sequential();
+        //     this.linearModel.add(tf.layers.dense({units: 1, inputShape: [1]}));
+        //     // Prepare the model for training: Specify the loss and the optimizer.
+        //     this.linearModel.compile({loss: 'meanSquaredError', optimizer: 'sgd'});
+        //     // Training data, completely random stuff
+        //     debugger;
+        //     const trainingDataX = this.xVals.length > 0 ? this.xVals : [3.2, 4.4, 5.5];
+        //     const trainingDataY = this.yVals.length > 0 ? this.yVals : [1.6, 2.7, 3.5];
+        //     const xs = tf.tensor1d(trainingDataX);
+        //     const ys = tf.tensor1d(trainingDataY);
+        //     // Train
+        //     await this.linearModel.fit(xs, ys)
+        //     console.log('model trained!')
+        // }
+        // predictLinear(val: string) {
+        //   const valFloat = parseFloat(val);
+        //   const output = this.linearModel.predict(tf.tensor2d([valFloat], [1, 1])) as any;
+        //   this.prediction = Array.from(output.dataSync())[0];
+        // }
     }
     Object.defineProperty(AppComponent.prototype, "getCanvasCtx", {
         get: function () {
             if (this.canvasCtx === undefined) {
-                this.canvasCtx = this.canvas
-                    .nativeElement.getContext('2d');
+                this.canvasCtx = this.canvas.nativeElement.getContext('2d');
             }
             return this.canvasCtx;
         },
@@ -461,8 +479,7 @@ var AppComponent = /** @class */ (function () {
     });
     AppComponent.prototype.ngOnInit = function () {
         this.init();
-        this.trainNewModel();
-        this.loadModel();
+        //this.trainLinear();
     };
     AppComponent.prototype.init = function () {
         if (this.yVals.length > 0) {
@@ -487,17 +504,15 @@ var AppComponent = /** @class */ (function () {
         }
     };
     // loss funkce
-    AppComponent.prototype.loss = function (pred, labels) {
-        var tensors = _tensorflow_tfjs__WEBPACK_IMPORTED_MODULE_3__["tensor1d"](pred);
-        return tensors
-            .sub(labels)
-            .square()
-            .mean();
+    AppComponent.prototype.loss = function (prediction, labels) {
+        // subtracts the two arrays & squares each element of the tensor then finds the mean. 
+        var error = prediction.sub(labels).square().mean();
+        return error;
     };
     AppComponent.prototype.predict = function (x) {
-        var xs = _tensorflow_tfjs__WEBPACK_IMPORTED_MODULE_3__["tensor1d"](x);
-        var ys = xs.mul(this.m).add(this.b);
-        return ys;
+        return _tensorflow_tfjs__WEBPACK_IMPORTED_MODULE_3__["tidy"](function () {
+            return this.m.mul(x).add(this.b);
+        });
     };
     AppComponent.prototype.canvasClicked = function (event) {
         this.drawPoint(event.offsetX, event.offsetY);
@@ -524,82 +539,40 @@ var AppComponent = /** @class */ (function () {
         }
         this.scatterChartData[0].data = newData;
     };
-    // DRAWABLE LOGIC !!!!
-    //// LOAD PRETRAINED KERAS MODEL ////
-    AppComponent.prototype.loadModel = function () {
-        return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function () {
-            var _a;
-            return tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"](this, function (_b) {
-                switch (_b.label) {
-                    case 0:
-                        _a = this;
-                        return [4 /*yield*/, _tensorflow_tfjs__WEBPACK_IMPORTED_MODULE_3__["loadLayersModel"]('/assets/model.json')];
-                    case 1:
-                        _a.model = _b.sent();
-                        return [2 /*return*/];
-                }
-            });
+    //predictionsBefore = this.predictLin(tf.tensor1d(this.xVals));
+    AppComponent.prototype.predictLin = function (x) {
+        var _this = this;
+        return _tensorflow_tfjs__WEBPACK_IMPORTED_MODULE_3__["tidy"](function () {
+            return _this.mLin.mul(x).add(_this.bLin);
         });
     };
-    AppComponent.prototype.predictDrawable = function (imageData) {
-        return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function () {
-            var pred;
-            var _this = this;
-            return tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"](this, function (_a) {
-                switch (_a.label) {
-                    case 0: return [4 /*yield*/, _tensorflow_tfjs__WEBPACK_IMPORTED_MODULE_3__["tidy"](function () {
-                            // Convert the canvas pixels to
-                            var img = _tensorflow_tfjs__WEBPACK_IMPORTED_MODULE_3__["browser"].fromPixels(imageData, 1);
-                            // img = img.reshape([1, 28, 28]); // , 1]);
-                            img = _tensorflow_tfjs__WEBPACK_IMPORTED_MODULE_3__["cast"](img, 'float32');
-                            // Make and format the predications
-                            var output = _this.model.predict(img);
-                            // Save predictions on the component
-                            _this.predictions = Array.from(output.dataSync());
-                        })];
-                    case 1:
-                        pred = _a.sent();
-                        return [2 /*return*/];
-                }
-            });
-        });
+    AppComponent.prototype.lossLin = function (prediction, labels) {
+        //subtracts the two arrays & squares each element of the tensor then finds the mean. 
+        var error = prediction.sub(labels).square().mean();
+        return error;
     };
-    AppComponent.prototype.trainNewModel = function () {
-        return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function () {
-            var xs, ys, result1, result2;
-            return tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"](this, function (_a) {
-                switch (_a.label) {
-                    case 0:
-                        // Define a model for linear regression.
-                        this.linearModel = _tensorflow_tfjs__WEBPACK_IMPORTED_MODULE_3__["sequential"]();
-                        this.linearModel.add(_tensorflow_tfjs__WEBPACK_IMPORTED_MODULE_3__["layers"].dense({ units: 1, inputShape: [1] }));
-                        // Prepare the model for training: Specify the loss and the optimizer.
-                        this.linearModel.compile({ loss: 'meanSquaredError', optimizer: 'sgd' });
-                        xs = _tensorflow_tfjs__WEBPACK_IMPORTED_MODULE_3__["tensor1d"](this.xVals);
-                        ys = _tensorflow_tfjs__WEBPACK_IMPORTED_MODULE_3__["tensor1d"](this.yVals);
-                        // Train
-                        return [4 /*yield*/, this.linearModel.fit(xs, ys)];
-                    case 1:
-                        // Train
-                        _a.sent();
-                        result1 = this.linearModel.predict(_tensorflow_tfjs__WEBPACK_IMPORTED_MODULE_3__["tensor"]([5]));
-                        result2 = this.linearModel.predict(_tensorflow_tfjs__WEBPACK_IMPORTED_MODULE_3__["tensor"]([6]));
-                        console.log('model trained!', xs.print(), ys.print());
-                        console.log('check value', result1);
-                        console.log('check value', result2);
-                        return [2 /*return*/];
-                }
-            });
+    AppComponent.prototype.trainLin = function () {
+        var _this = this;
+        debugger;
+        var learningRate = 0.01;
+        var optimizer = _tensorflow_tfjs__WEBPACK_IMPORTED_MODULE_3__["train"].sgd(learningRate);
+        optimizer.minimize(function () {
+            var predsYs = _this.predictLin(_tensorflow_tfjs__WEBPACK_IMPORTED_MODULE_3__["tensor1d"](_this.xVals));
+            console.log(predsYs);
+            var stepLoss = _this.lossLin(predsYs, _tensorflow_tfjs__WEBPACK_IMPORTED_MODULE_3__["tensor1d"](_this.yVals));
+            console.log(stepLoss.dataSync()[0]);
+            return stepLoss;
         });
+        //plot();
     };
     tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])('canvas'),
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", _angular_core__WEBPACK_IMPORTED_MODULE_1__["ElementRef"])
     ], AppComponent.prototype, "canvas", void 0);
     tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])('child'),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", _app_drawningExample_drawningExample_component__WEBPACK_IMPORTED_MODULE_2__["DrawningExampleComponent"])
-    ], AppComponent.prototype, "drawingCanvas", void 0);
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])(_drawable_directive__WEBPACK_IMPORTED_MODULE_2__["DrawableDirective"]),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", Object)
+    ], AppComponent.prototype, "drawableCanvas", void 0);
     AppComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
             selector: 'app-root',
@@ -640,11 +613,17 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_material_expansion__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! @angular/material/expansion */ "./node_modules/@angular/material/esm5/expansion.es5.js");
 /* harmony import */ var _angular_material_slider__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! @angular/material/slider */ "./node_modules/@angular/material/esm5/slider.es5.js");
 /* harmony import */ var _angular_material_select__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! @angular/material/select */ "./node_modules/@angular/material/esm5/select.es5.js");
-/* harmony import */ var _drawable_directive__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./drawable.directive */ "./src/app/drawable.directive.ts");
-/* harmony import */ var _drawningExample_drawningExample_component__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./drawningExample/drawningExample.component */ "./src/app/drawningExample/drawningExample.component.ts");
-/* harmony import */ var _imageClassification_imageClassification_component__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./imageClassification/imageClassification.component */ "./src/app/imageClassification/imageClassification.component.ts");
-/* harmony import */ var _drawningExampleChart_chart_component__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./drawningExampleChart/chart.component */ "./src/app/drawningExampleChart/chart.component.ts");
-/* harmony import */ var _imageClassificationChart_chartImageClassification_component__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./imageClassificationChart/chartImageClassification.component */ "./src/app/imageClassificationChart/chartImageClassification.component.ts");
+/* harmony import */ var _angular_material_list__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! @angular/material/list */ "./node_modules/@angular/material/esm5/list.es5.js");
+/* harmony import */ var _angular_material_chips__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! @angular/material/chips */ "./node_modules/@angular/material/esm5/chips.es5.js");
+/* harmony import */ var _drawable_directive__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./drawable.directive */ "./src/app/drawable.directive.ts");
+/* harmony import */ var _linearRegressionExample_linearRegressionExample_component__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./linearRegressionExample/linearRegressionExample.component */ "./src/app/linearRegressionExample/linearRegressionExample.component.ts");
+/* harmony import */ var _drawningExample_drawningExample_component__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./drawningExample/drawningExample.component */ "./src/app/drawningExample/drawningExample.component.ts");
+/* harmony import */ var _imageClassification_imageClassification_component__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./imageClassification/imageClassification.component */ "./src/app/imageClassification/imageClassification.component.ts");
+/* harmony import */ var _drawningExampleChart_chart_component__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./drawningExampleChart/chart.component */ "./src/app/drawningExampleChart/chart.component.ts");
+/* harmony import */ var _imageClassificationChart_chartImageClassification_component__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ./imageClassificationChart/chartImageClassification.component */ "./src/app/imageClassificationChart/chartImageClassification.component.ts");
+
+
+
 
 
 
@@ -673,11 +652,12 @@ var AppModule = /** @class */ (function () {
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_2__["NgModule"])({
             declarations: [
                 _app_component__WEBPACK_IMPORTED_MODULE_4__["AppComponent"],
-                _drawable_directive__WEBPACK_IMPORTED_MODULE_16__["DrawableDirective"],
-                _drawningExample_drawningExample_component__WEBPACK_IMPORTED_MODULE_17__["DrawningExampleComponent"],
-                _imageClassification_imageClassification_component__WEBPACK_IMPORTED_MODULE_18__["ImageClassificationComponent"],
-                _drawningExampleChart_chart_component__WEBPACK_IMPORTED_MODULE_19__["ChartComponent"],
-                _imageClassificationChart_chartImageClassification_component__WEBPACK_IMPORTED_MODULE_20__["ChartImageClassificationComponent"],
+                _drawable_directive__WEBPACK_IMPORTED_MODULE_18__["DrawableDirective"],
+                _linearRegressionExample_linearRegressionExample_component__WEBPACK_IMPORTED_MODULE_19__["LinearRegressionExampleComponent"],
+                _drawningExample_drawningExample_component__WEBPACK_IMPORTED_MODULE_20__["DrawningExampleComponent"],
+                _imageClassification_imageClassification_component__WEBPACK_IMPORTED_MODULE_21__["ImageClassificationComponent"],
+                _drawningExampleChart_chart_component__WEBPACK_IMPORTED_MODULE_22__["ChartComponent"],
+                _imageClassificationChart_chartImageClassification_component__WEBPACK_IMPORTED_MODULE_23__["ChartImageClassificationComponent"]
             ],
             imports: [
                 _angular_platform_browser__WEBPACK_IMPORTED_MODULE_1__["BrowserModule"],
@@ -693,6 +673,8 @@ var AppModule = /** @class */ (function () {
                 _angular_material_expansion__WEBPACK_IMPORTED_MODULE_13__["MatExpansionModule"],
                 _angular_material_slider__WEBPACK_IMPORTED_MODULE_14__["MatSliderModule"],
                 _angular_material_select__WEBPACK_IMPORTED_MODULE_15__["MatSelectModule"],
+                _angular_material_list__WEBPACK_IMPORTED_MODULE_16__["MatListModule"],
+                _angular_material_chips__WEBPACK_IMPORTED_MODULE_17__["MatChipsModule"]
             ],
             providers: [],
             bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_4__["AppComponent"]]
@@ -1039,7 +1021,7 @@ module.exports = ".uploadedImage {\r\n  border: 1px solid rgba(244, 67, 54, 0.54
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<mat-card class=\"drawing-card\">\r\n  <mat-card-header>\r\n    <mat-card-title\r\n      >TensorflowJS image recognition example with trained Python model</mat-card-title\r\n    >\r\n    <mat-card-subtitle>Select an image you would like to recognize with using pretrained MobileNet model</mat-card-subtitle>\r\n  </mat-card-header>\r\n  <mat-card-content>\r\n     \r\n      <div fxLayout=\"row\" fxLayoutAlign=\"center center\" >\r\n      <div id=\"file-container\" class=\"uploadTextText\">\r\n          Procces an image: <input type=\"file\" class=\"uploadBtn\" id=\"files\" (change)=\"loadImage($event)\" name=\"files[]\" multiple />\r\n        </div>\r\n        </div>\r\n      \r\n        <mat-card *ngFor=\"let image of LoadedImages\" class=\"drawing-card\">\r\n            \r\n            <mat-card-header>\r\n                <div mat-card-avatar class=\"example-header-image\"></div>\r\n                <mat-card-title\r\n                  >Image</mat-card-title\r\n                >\r\n                <mat-card-subtitle>\r\n                   \r\n                  Uploaded height: \r\n                  <span class=\"original-size\"> {{ image.naturalHeight }}  </span> px | \r\n                  width: <span class=\"original-size\"> {{ image.naturalWidth }} </span>px \r\n                </mat-card-subtitle>\r\n              </mat-card-header>\r\n              \r\n              <mat-card-content>\r\n                  <div fxLayout=\"row\" fxLayoutAlign=\"center center\" >\r\n          <img class=\"uploadedImage\" height=\"224\" width=\"224\" src=\"{{image.src}}\">\r\n        </div>\r\n          <app-chart-image-classification [data]=\"predictions\"></app-chart-image-classification>\r\n   \r\n        </mat-card-content>\r\n    \r\n        </mat-card>\r\n\r\n  </mat-card-content>\r\n</mat-card>\r\n\r\n\r\n"
+module.exports = "<mat-card class=\"drawing-card\">\r\n  <mat-card-header>\r\n    <mat-card-title>TensorflowJS image recognition example with trained Python model</mat-card-title>\r\n    <mat-card-subtitle>Select an image you would like to recognize with using pretrained MobileNet model</mat-card-subtitle>\r\n  </mat-card-header>\r\n  <mat-card-content>\r\n     \r\n      <div fxLayout=\"row\" fxLayoutAlign=\"center center\" >\r\n      <div id=\"file-container\" class=\"uploadTextText\">\r\n          Procces an image: <input type=\"file\" class=\"uploadBtn\" id=\"files\" (change)=\"loadImage($event)\" name=\"files[]\" multiple />\r\n        </div>\r\n        </div>\r\n      \r\n        <mat-card *ngFor=\"let image of LoadedImages\" class=\"drawing-card\">\r\n            \r\n            <mat-card-header>\r\n                <div mat-card-avatar class=\"example-header-image\"></div>\r\n                <mat-card-title\r\n                  >Image</mat-card-title\r\n                >\r\n                <mat-card-subtitle>\r\n                   \r\n                  Uploaded height: \r\n                  <span class=\"original-size\"> {{ image.naturalHeight }}  </span> px | \r\n                  width: <span class=\"original-size\"> {{ image.naturalWidth }} </span>px \r\n                </mat-card-subtitle>\r\n              </mat-card-header>\r\n              \r\n              <mat-card-content>\r\n                  <div fxLayout=\"row\" fxLayoutAlign=\"center center\" >\r\n          <img class=\"uploadedImage\" height=\"224\" width=\"224\" src=\"{{image.src}}\">\r\n        </div>\r\n          <app-chart-image-classification [data]=\"predictions\"></app-chart-image-classification>\r\n   \r\n        </mat-card-content>\r\n    \r\n        </mat-card>\r\n\r\n  </mat-card-content>\r\n</mat-card>\r\n\r\n\r\n"
 
 /***/ }),
 
@@ -1086,14 +1068,11 @@ var ImageClassificationComponent = /** @class */ (function () {
                         // faster. Call `dispose` to release the WebGL memory allocated for the return
                         // value of `predict`.
                         // this.MobileNet.predict(tf.zeros([1, this.IMAGE_SIZE, this.IMAGE_SIZE, 3]));
-                        this.status('');
+                        this.status('Model je nahraný');
                         return [2 /*return*/];
                 }
             });
         });
-    };
-    ImageClassificationComponent.prototype.clearData = function (event) {
-        debugger;
     };
     ImageClassificationComponent.prototype.loadImage = function (event) {
         var _this = this;
@@ -2281,7 +2260,7 @@ var IMAGENET_CLASSES = {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"chart-wrapper\">\r\n  <div>\r\n    <canvas baseChart\r\n            [datasets]=\"barChartData\"\r\n            [labels]=\"barChartLabels\"\r\n            [options]=\"barChartOptions\"\r\n            [legend]=\"barChartLegend\"\r\n            \r\n            [chartType]=\"barChartType\">\r\n    </canvas>\r\n  </div>\r\n</div>"
+module.exports = "<div class=\"chart-wrapper\">\r\n  <div>\r\n    <canvas baseChart\r\n            [datasets]=\"barChartData\"\r\n            [labels]=\"barChartLabels\"\r\n            [options]=\"barChartOptions\"\r\n            [legend]=\"barChartLegend\"\r\n            [chartType]=\"barChartType\">\r\n    </canvas>\r\n  </div>\r\n</div>"
 
 /***/ }),
 
@@ -2338,7 +2317,6 @@ var ChartImageClassificationComponent = /** @class */ (function () {
         this.barChartLegend = false;
     }
     ChartImageClassificationComponent.prototype.ngOnChanges = function () {
-        debugger;
         this.barChartLabels = this.data.map(function (record) { return record.className; });
         this.data = this.data.map(function (record) { return record.probability; });
         this.barChartData = [
@@ -2361,6 +2339,303 @@ var ChartImageClassificationComponent = /** @class */ (function () {
         })
     ], ChartImageClassificationComponent);
     return ChartImageClassificationComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/linearRegressionExample/linearRegressionExample.component.css":
+/*!*******************************************************************************!*\
+  !*** ./src/app/linearRegressionExample/linearRegressionExample.component.css ***!
+  \*******************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ".model-configuration-container {\r\n  padding-left: 46px;\r\n}\r\n\r\n.content-max-width {\r\n  max-width: 680px;\r\n}\r\n\r\n.text-total-values {\r\n  text-align: right;\r\n  font-size: 12px;\r\n  font-weight: bold;\r\n  letter-spacing: 0.2px;\r\n}\r\n\r\n.total-value {\r\n  color: #f44336;\r\n}\r\n\r\n.input-values {\r\n  margin-left: 12px;\r\n  width: 130px;\r\n}\r\n\r\n.model-m-value {\r\n  color: black;\r\n}\r\n\r\n.model-b-value {\r\n  color: black;\r\n}\r\n\r\n.model-container {\r\n  padding-top: 24px;\r\n}\r\n\r\n.model-text {\r\n  text-align: center;\r\n  padding-left: 16px;\r\n  padding: 16px;\r\n  border-radius: 16px;\r\n  border: 2px solid rgba(0, 0, 0, 0.85);\r\n  background-color: #f44336;;\r\n  font-size: 18px;\r\n  color: white;\r\n}\r\n\r\n.no-left-mergin {\r\n  margin-left: 0px;\r\n}\r\n\r\n.generated-data-container {\r\n  margin-top: 18px;\r\n}\r\n\r\n.text-chip {\r\n  text-transform: uppercase;\r\n  font-size: 11px;\r\n  font-weight: bold;\r\n  letter-spacing: 0.6px;\r\n  text-shadow: 2px 2px 2px rgba(206,89,55,0);\r\n}\r\n\r\n.xValue-chip {\r\n  color: rgb(255, 91, 79);;\r\n}\r\n\r\n.yValue-chip {\r\n  color: rgb(46, 132, 182);\r\n}\r\n\r\n.divider-chip {\r\n  padding-left: 4px;\r\n  padding-right: 4px;\r\n  font-weight: bold;\r\n  color: white;\r\n}\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvbGluZWFyUmVncmVzc2lvbkV4YW1wbGUvbGluZWFyUmVncmVzc2lvbkV4YW1wbGUuY29tcG9uZW50LmNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNFLGtCQUFrQjtBQUNwQjs7QUFFQTtFQUNFLGdCQUFnQjtBQUNsQjs7QUFFQTtFQUNFLGlCQUFpQjtFQUNqQixlQUFlO0VBQ2YsaUJBQWlCO0VBQ2pCLHFCQUFxQjtBQUN2Qjs7QUFFQTtFQUNFLGNBQWM7QUFDaEI7O0FBRUE7RUFDRSxpQkFBaUI7RUFDakIsWUFBWTtBQUNkOztBQUVBO0VBQ0UsWUFBWTtBQUNkOztBQUVBO0VBQ0UsWUFBWTtBQUNkOztBQUVBO0VBQ0UsaUJBQWlCO0FBQ25COztBQUVBO0VBQ0Usa0JBQWtCO0VBQ2xCLGtCQUFrQjtFQUNsQixhQUFhO0VBQ2IsbUJBQW1CO0VBQ25CLHFDQUFxQztFQUNyQyx5QkFBeUI7RUFDekIsZUFBZTtFQUNmLFlBQVk7QUFDZDs7QUFFQTtFQUNFLGdCQUFnQjtBQUNsQjs7QUFFQTtFQUNFLGdCQUFnQjtBQUNsQjs7QUFFQTtFQUNFLHlCQUF5QjtFQUN6QixlQUFlO0VBQ2YsaUJBQWlCO0VBQ2pCLHFCQUFxQjtFQUNyQiwwQ0FBMEM7QUFDNUM7O0FBRUE7RUFDRSx1QkFBdUI7QUFDekI7O0FBRUE7RUFDRSx3QkFBd0I7QUFDMUI7O0FBRUE7RUFDRSxpQkFBaUI7RUFDakIsa0JBQWtCO0VBQ2xCLGlCQUFpQjtFQUNqQixZQUFZO0FBQ2QiLCJmaWxlIjoic3JjL2FwcC9saW5lYXJSZWdyZXNzaW9uRXhhbXBsZS9saW5lYXJSZWdyZXNzaW9uRXhhbXBsZS5jb21wb25lbnQuY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLm1vZGVsLWNvbmZpZ3VyYXRpb24tY29udGFpbmVyIHtcclxuICBwYWRkaW5nLWxlZnQ6IDQ2cHg7XHJcbn1cclxuXHJcbi5jb250ZW50LW1heC13aWR0aCB7XHJcbiAgbWF4LXdpZHRoOiA2ODBweDtcclxufVxyXG5cclxuLnRleHQtdG90YWwtdmFsdWVzIHtcclxuICB0ZXh0LWFsaWduOiByaWdodDtcclxuICBmb250LXNpemU6IDEycHg7XHJcbiAgZm9udC13ZWlnaHQ6IGJvbGQ7XHJcbiAgbGV0dGVyLXNwYWNpbmc6IDAuMnB4O1xyXG59XHJcblxyXG4udG90YWwtdmFsdWUge1xyXG4gIGNvbG9yOiAjZjQ0MzM2O1xyXG59XHJcblxyXG4uaW5wdXQtdmFsdWVzIHtcclxuICBtYXJnaW4tbGVmdDogMTJweDtcclxuICB3aWR0aDogMTMwcHg7XHJcbn1cclxuXHJcbi5tb2RlbC1tLXZhbHVlIHtcclxuICBjb2xvcjogYmxhY2s7XHJcbn1cclxuXHJcbi5tb2RlbC1iLXZhbHVlIHtcclxuICBjb2xvcjogYmxhY2s7XHJcbn1cclxuXHJcbi5tb2RlbC1jb250YWluZXIge1xyXG4gIHBhZGRpbmctdG9wOiAyNHB4O1xyXG59XHJcblxyXG4ubW9kZWwtdGV4dCB7XHJcbiAgdGV4dC1hbGlnbjogY2VudGVyO1xyXG4gIHBhZGRpbmctbGVmdDogMTZweDtcclxuICBwYWRkaW5nOiAxNnB4O1xyXG4gIGJvcmRlci1yYWRpdXM6IDE2cHg7XHJcbiAgYm9yZGVyOiAycHggc29saWQgcmdiYSgwLCAwLCAwLCAwLjg1KTtcclxuICBiYWNrZ3JvdW5kLWNvbG9yOiAjZjQ0MzM2OztcclxuICBmb250LXNpemU6IDE4cHg7XHJcbiAgY29sb3I6IHdoaXRlO1xyXG59XHJcblxyXG4ubm8tbGVmdC1tZXJnaW4ge1xyXG4gIG1hcmdpbi1sZWZ0OiAwcHg7XHJcbn1cclxuXHJcbi5nZW5lcmF0ZWQtZGF0YS1jb250YWluZXIge1xyXG4gIG1hcmdpbi10b3A6IDE4cHg7XHJcbn1cclxuXHJcbi50ZXh0LWNoaXAge1xyXG4gIHRleHQtdHJhbnNmb3JtOiB1cHBlcmNhc2U7XHJcbiAgZm9udC1zaXplOiAxMXB4O1xyXG4gIGZvbnQtd2VpZ2h0OiBib2xkO1xyXG4gIGxldHRlci1zcGFjaW5nOiAwLjZweDtcclxuICB0ZXh0LXNoYWRvdzogMnB4IDJweCAycHggcmdiYSgyMDYsODksNTUsMCk7XHJcbn1cclxuXHJcbi54VmFsdWUtY2hpcCB7XHJcbiAgY29sb3I6IHJnYigyNTUsIDkxLCA3OSk7O1xyXG59XHJcblxyXG4ueVZhbHVlLWNoaXAge1xyXG4gIGNvbG9yOiByZ2IoNDYsIDEzMiwgMTgyKTtcclxufVxyXG5cclxuLmRpdmlkZXItY2hpcCB7XHJcbiAgcGFkZGluZy1sZWZ0OiA0cHg7XHJcbiAgcGFkZGluZy1yaWdodDogNHB4O1xyXG4gIGZvbnQtd2VpZ2h0OiBib2xkO1xyXG4gIGNvbG9yOiB3aGl0ZTtcclxufSJdfQ== */"
+
+/***/ }),
+
+/***/ "./src/app/linearRegressionExample/linearRegressionExample.component.html":
+/*!********************************************************************************!*\
+  !*** ./src/app/linearRegressionExample/linearRegressionExample.component.html ***!
+  \********************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<!-- model configuration -->\r\n<div fxLayout=\"row\" fxLayoutAlign=\"space-between center\">\r\n  <div class=\"model-configuration-container\" fxLayout=\"column\" fxLayoutAlign=\"start center\">\r\n    <mat-form-field class=\"example-full-width\">\r\n      <input matInput #postalCode maxlength=\"5\" placeholder=\"Number of values\" value=\"150\" />\r\n    </mat-form-field>\r\n    <mat-form-field class=\"example-full-width\">\r\n      <input matInput #postalCode maxlength=\"3\" placeholder=\"Learning rate\" value=\"{{learningRate}}\" />\r\n    </mat-form-field>\r\n    <mat-form-field>\r\n      <mat-label>Select an option</mat-label>\r\n      <mat-select [(value)]=\"selected\">\r\n        <mat-option>None</mat-option>\r\n        <mat-option value=\"1\">SGD</mat-option>\r\n        <mat-option value=\"2\">Adagrad</mat-option>\r\n      </mat-select>\r\n    </mat-form-field>\r\n  </div>\r\n  <div fxLayout=\"column\" fxLayoutAlign=\"start center\">\r\n    <canvas #canvas id=\"stage\" width=\"{{ getCanvasSize }}\" height=\"{{ getCanvasSize }}\" style=\"border:1px solid #000000;\"\r\n      (click)=\"canvasClicked($event)\"></canvas>\r\n  </div>\r\n</div>\r\n<div class=\"model-container\" fxLayout=\"column\" fxLayoutAlign=\"start center\">\r\n  <p class=\"model-text\"> Y = <span class=\"model-m-value\">{{ getMValue }}</span>X + <span\r\n      class=\"model-b-value\">{{ getBValue }}</span></p>\r\n</div>\r\n<!-- train-data-card -->\r\n<mat-card class=\"generated-data-container\">\r\n  <h3 class=\"no-left-mergin\">Generated data</h3>\r\n  <mat-card-content class=\"content-max-width\">\r\n    <mat-chip-list>\r\n      <mat-chip *ngFor=\"let chip of chipsData\">\r\n        <span class=\"xValue-chip text-chip\">x:{{ chip.xValue }}</span>\r\n        <span class=\"divider-chip text-chip\"> | </span>\r\n        <span class=\"yValue-chip text-chip\">y:{{ chip.yValue }}</span>\r\n      </mat-chip>\r\n    </mat-chip-list>\r\n    <p class=\"text-total-values\">Total number of values: <span class=\"total-value\">{{ chipsData.length }}</span></p>\r\n  </mat-card-content>\r\n  <mat-card-actions>\r\n    <div fxLayout=\"row\" fxLayoutAlign=\"space-between start\">\r\n      <div>\r\n        <mat-form-field class=\"input-values\">\r\n          <input matInput type=\"number\" placeholder=\"Number of values\" width=\"5\" min=\"2\"\r\n            (change)=\"changeNumberOfGeneratedValues($event)\" value=\"{{numberOfGeneratedValues}}\" max=\"15000\">\r\n        </mat-form-field>\r\n        <button mat-raised-button color=\"primary\" (click)=\"generateRandomData()\">Generate data</button>\r\n      </div>\r\n      <div>\r\n        <button mat-raised-button color=\"warn\" (click)=\"clearData()\">Clear data</button>\r\n        <button mat-raised-button color=\"primary\" (click)=\"trainLin($event)\">Train model</button>\r\n      </div>\r\n    </div>\r\n  </mat-card-actions>\r\n</mat-card>\r\n\r\n<!-- graph-result-card -->\r\n<mat-card class=\"generated-data-container\">\r\n  <h3 class=\"no-left-mergin\">Result</h3>\r\n  <mat-card-content class=\"content-max-width\">\r\n      <div class=\"chart-wrapper\">\r\n          <div><!-- //<div *ngIf=\"chart\"> -->\r\n              <canvas #canvasResult>{{ chart }}</canvas>\r\n            </div>\r\n        </div>\r\n  </mat-card-content>\r\n</mat-card>\r\n\r\n<div fxLayout=\"row\" fxLayoutAlign=\"space-between center\">\r\n  TensorFlow says {{ prediction }}\r\n  <input type=\"number\" (change)=\"predictLinear($event.target.value)\">\r\n</div>\r\n"
+
+/***/ }),
+
+/***/ "./src/app/linearRegressionExample/linearRegressionExample.component.ts":
+/*!******************************************************************************!*\
+  !*** ./src/app/linearRegressionExample/linearRegressionExample.component.ts ***!
+  \******************************************************************************/
+/*! exports provided: LinearRegressionExampleComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LinearRegressionExampleComponent", function() { return LinearRegressionExampleComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var chart_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! chart.js */ "./node_modules/chart.js/dist/Chart.js");
+/* harmony import */ var chart_js__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(chart_js__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _drawable_directive__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../drawable.directive */ "./src/app/drawable.directive.ts");
+/* harmony import */ var _tensorflow_tfjs__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @tensorflow/tfjs */ "./node_modules/@tensorflow/tfjs/dist/tf.esm.js");
+
+
+
+
+
+var LinearRegressionExampleComponent = /** @class */ (function () {
+    function LinearRegressionExampleComponent() {
+        // Train data
+        this.xVals = [
+            42,
+            58,
+            96,
+            120,
+            158,
+            179,
+            202,
+            226,
+            242,
+            255,
+        ];
+        this.yVals = [
+            30,
+            44,
+            82,
+            107,
+            134,
+            154,
+            175,
+            196, 211, 222
+        ];
+        this.learningRate = 0.1;
+        // Generating train data
+        this.canvasSize = 320;
+        this.numberOfGeneratedValues = 15;
+        this.chipsData = [];
+        this.m = _tensorflow_tfjs__WEBPACK_IMPORTED_MODULE_4__["variable"](_tensorflow_tfjs__WEBPACK_IMPORTED_MODULE_4__["scalar"](Math.random()));
+        this.b = _tensorflow_tfjs__WEBPACK_IMPORTED_MODULE_4__["variable"](_tensorflow_tfjs__WEBPACK_IMPORTED_MODULE_4__["scalar"](Math.random()));
+    }
+    Object.defineProperty(LinearRegressionExampleComponent.prototype, "getCanvasCtx", {
+        get: function () {
+            if (this.canvasCtx === undefined) {
+                this.canvasCtx = this.canvas.nativeElement.getContext('2d');
+            }
+            return this.canvasCtx;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(LinearRegressionExampleComponent.prototype, "getCanvasResultCtx", {
+        get: function () {
+            if (this.canvasResultCtx === undefined) {
+                this.canvasResultCtx = this.canvasResult.nativeElement.getContext('2d');
+            }
+            return this.canvasResultCtx;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(LinearRegressionExampleComponent.prototype, "getCanvasSize", {
+        get: function () {
+            return this.canvasSize;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(LinearRegressionExampleComponent.prototype, "getMValue", {
+        get: function () {
+            if (this.m !== undefined) {
+                return this.m.dataSync()[0].toFixed(4).toString();
+            }
+            return '?';
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(LinearRegressionExampleComponent.prototype, "getBValue", {
+        get: function () {
+            if (this.b !== undefined) {
+                return this.b.dataSync()[0].toFixed(4).toString();
+            }
+            return '?';
+        },
+        enumerable: true,
+        configurable: true
+    });
+    LinearRegressionExampleComponent.prototype.predictLin = function (x) {
+        var _this = this;
+        return _tensorflow_tfjs__WEBPACK_IMPORTED_MODULE_4__["tidy"](function () {
+            return _this.m.mul(x).add(_this.b);
+        });
+    };
+    LinearRegressionExampleComponent.prototype.lossLin = function (prediction, labels) {
+        var error = prediction.sub(labels).square().mean();
+        return error;
+    };
+    LinearRegressionExampleComponent.prototype.trainLin = function () {
+        return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function () {
+            var optimizer, ctx;
+            var _this = this;
+            return tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"](this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        debugger;
+                        optimizer = _tensorflow_tfjs__WEBPACK_IMPORTED_MODULE_4__["train"].sgd(this.learningRate);
+                        optimizer.minimize(function () {
+                            var predsYs = _this.predictLin(_tensorflow_tfjs__WEBPACK_IMPORTED_MODULE_4__["tensor1d"](_this.xVals));
+                            var stepLoss = _this.lossLin(predsYs, _tensorflow_tfjs__WEBPACK_IMPORTED_MODULE_4__["tensor1d"](_this.yVals));
+                            return stepLoss;
+                        });
+                        return [4 /*yield*/, this.generatePlotData()];
+                    case 1:
+                        _a.sent();
+                        ctx = this.getCanvasResultCtx;
+                        this.chart = new chart_js__WEBPACK_IMPORTED_MODULE_2__["Chart"](ctx, {
+                            type: 'line',
+                            data: this.chartData,
+                            options: {
+                                scales: {
+                                    xAxes: [
+                                        {
+                                            type: 'linear',
+                                            position: 'bottom'
+                                        }
+                                    ]
+                                }
+                            }
+                        });
+                        return [2 /*return*/];
+                }
+            });
+        });
+    };
+    LinearRegressionExampleComponent.prototype.generateChipsData = function () {
+        var mergedData = this.xVals.concat(this.yVals);
+        if (mergedData.length % 2 === 0) {
+            this.chipsData = [];
+            for (var index = 0; index < (mergedData.length / 2); index++) {
+                var nextChipData = {
+                    xValue: mergedData[index],
+                    yValue: mergedData[mergedData.length / 2 + index]
+                };
+                this.chipsData = this.chipsData.concat([nextChipData]);
+            }
+        }
+        else {
+            console.warn('Cannot generate train data. Xs and Ys values has different length');
+        }
+    };
+    LinearRegressionExampleComponent.prototype.changeNumberOfGeneratedValues = function (event) {
+        this.numberOfGeneratedValues = Number(event.target.value);
+    };
+    LinearRegressionExampleComponent.prototype.generateRandomData = function () {
+        this.generateCustomValues(this.numberOfGeneratedValues);
+    };
+    // Canvas methods
+    LinearRegressionExampleComponent.prototype.generateCustomValues = function (numberOfValues) {
+        for (var index = 0; index < numberOfValues; index++) {
+            // Return a random number between 1 and 250 according to size of the canvas
+            var newXVal = parseFloat((Math.random() * 250 + 1).toFixed());
+            var newYVal = parseFloat((Math.random() * 250 + 1).toFixed());
+            this.xVals = this.xVals.concat([newXVal]);
+            this.yVals = this.yVals.concat([newYVal]);
+            this.drawPoint(newXVal, newYVal);
+            this.drawChart();
+        }
+        this.generateChipsData();
+    };
+    LinearRegressionExampleComponent.prototype.drawPoint = function (x, y) {
+        this.getCanvasCtx.fillStyle = '#FF0000';
+        this.getCanvasCtx.fillRect(x, y, 3, 4);
+    };
+    LinearRegressionExampleComponent.prototype.drawChart = function () {
+        var newData = [];
+        for (var index = 0; index < this.xVals.length; index++) {
+            newData.push({ x: this.xVals[index], y: this.yVals[index] });
+        }
+    };
+    LinearRegressionExampleComponent.prototype.canvasClicked = function (event) {
+        this.drawPoint(event.offsetX, event.offsetY);
+        this.xVals = this.xVals.concat([event.offsetX]);
+        this.yVals = this.yVals.concat([Math.abs(event.offsetY - this.getCanvasSize)]);
+        this.generateChipsData();
+    };
+    // Clean all train data
+    LinearRegressionExampleComponent.prototype.clearData = function () {
+        this.canvasCtx.clearRect(0, 0, this.getCanvasSize, this.getCanvasSize);
+        this.xVals = [];
+        this.yVals = [];
+        this.chipsData = [];
+    };
+    // Plot methods
+    LinearRegressionExampleComponent.prototype.getPlotData = function () {
+        var data = [];
+        for (var i = 0; i < this.xVals.length; i++) {
+            data.push({ x: this.xVals[i], y: this.yVals[i] });
+        }
+        return data;
+    };
+    LinearRegressionExampleComponent.prototype.generatePlotData = function () {
+        return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function () {
+            var plotData;
+            return tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"](this, function (_a) {
+                plotData = this.getPlotData();
+                this.chartData = {
+                    datasets: [{
+                            label: 'Training Data',
+                            type: 'line',
+                            showLine: false,
+                            fill: false,
+                            data: plotData,
+                        },
+                        {
+                            label: 'Y = ' + this.m.dataSync()[0] + 'X + ' + this.b.dataSync()[0],
+                            data: [
+                                {
+                                    x: 0,
+                                    y: this.b.dataSync()[0]
+                                },
+                                {
+                                    x: Math.max.apply(Math, this.xVals),
+                                    y: Math.max.apply(Math, this.xVals) * this.m.dataSync()[0] + this.b.dataSync()[0]
+                                }
+                            ],
+                            // Changes this dataset to become a line
+                            type: 'line',
+                            borderColor: 'red',
+                            fill: false
+                        }]
+                };
+                return [2 /*return*/];
+            });
+        });
+    };
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])('canvas'),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", _angular_core__WEBPACK_IMPORTED_MODULE_1__["ElementRef"])
+    ], LinearRegressionExampleComponent.prototype, "canvas", void 0);
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])('canvasResult'),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", _angular_core__WEBPACK_IMPORTED_MODULE_1__["ElementRef"])
+    ], LinearRegressionExampleComponent.prototype, "canvasResult", void 0);
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])(_drawable_directive__WEBPACK_IMPORTED_MODULE_3__["DrawableDirective"]),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", Object)
+    ], LinearRegressionExampleComponent.prototype, "drawableCanvas", void 0);
+    LinearRegressionExampleComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+            selector: 'app-linear-regression-example',
+            template: __webpack_require__(/*! ./linearRegressionExample.component.html */ "./src/app/linearRegressionExample/linearRegressionExample.component.html"),
+            styles: [__webpack_require__(/*! ./linearRegressionExample.component.css */ "./src/app/linearRegressionExample/linearRegressionExample.component.css")]
+        })
+    ], LinearRegressionExampleComponent);
+    return LinearRegressionExampleComponent;
 }());
 
 

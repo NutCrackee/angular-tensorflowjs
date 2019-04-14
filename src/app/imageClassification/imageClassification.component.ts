@@ -11,7 +11,7 @@ export class ImageClassificationComponent implements OnInit {
   predictions = [];
   MobileNet: tf.LayersModel;
   IMAGE_SIZE: 224;
-  TOPK_PREDICTIONS: 10;
+  TOPK_PREDICTIONS: 5;
   LoadedImages: HTMLImageElement[] = [];
   MOBILENET_MODEL_PATH =
     // tslint:disable-next-line:max-line-length
@@ -29,28 +29,14 @@ export class ImageClassificationComponent implements OnInit {
     // value of `predict`.
     // this.MobileNet.predict(tf.zeros([1, this.IMAGE_SIZE, this.IMAGE_SIZE, 3]));
 
-    this.status('');
-
-
+    this.status('Model je nahraný');
   }
-
-
-  clearData(event: any) {
-    debugger;
-  }
-
 
    loadImage(event: any) {
     const selectedFiles: any[] = Object.values(event.target.files);
-
-
     const file = event.target.files[0];
 
-  
-
-
     selectedFiles.filter(image => image.type.match('image.*')).map(async image  => {
-
       try {
         const fileContents = await this.readSelectedFile(image);
 
@@ -65,8 +51,6 @@ export class ImageClassificationComponent implements OnInit {
         console.warn(e.message);
       }
     });
-
-
   }
 
   async getTopKClasses(logits, topK) {
@@ -98,9 +82,6 @@ export class ImageClassificationComponent implements OnInit {
 
   async predict(imgElement: any) {
     this.status('Predicting...');
-
-  
-
 
     const startTime1 = performance.now();
     // The second start time excludes the extraction and preprocessing and
@@ -151,5 +132,4 @@ export class ImageClassificationComponent implements OnInit {
   status(msg: string) {
     console.log(msg);
   }
-
 }

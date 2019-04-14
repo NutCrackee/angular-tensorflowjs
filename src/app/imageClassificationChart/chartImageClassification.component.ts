@@ -6,7 +6,6 @@ import { Component, OnInit, Input, OnChanges } from '@angular/core';
   styleUrls: ['./chartImageClassification.component.scss']
 })
 export class ChartImageClassificationComponent implements OnChanges {
-
   @Input() data;
 
    barChartOptions = {
@@ -29,20 +28,16 @@ export class ChartImageClassificationComponent implements OnChanges {
                   }
               }]
       }
-
   };
 
    barChartLabels = [];
    barChartType = 'horizontalBar';
    barChartLegend = false;
-
-
    barChartData: any;
 
   ngOnChanges() {
     this.barChartLabels = this.data.map(record => record.className);
     this.data = this.data.map(record => record.probability);
-
     this.barChartData = [
       {
         data: this.data || [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
