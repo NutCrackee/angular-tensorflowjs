@@ -35,6 +35,16 @@
   max-height: 64px;
 }
 
+.predicted-value {
+  color: #2e84b6;
+  font-size: 17px;
+  padding: 8px;
+  border-radius: 12px;
+  background-color: #e0e0e0;
+  font-weight: bold;
+  letter-spacing: 0.5px;
+}
+
 .model-text {
   text-align: center;
   padding-left: 16px;

@@ -26,6 +26,7 @@ export class LinearRegressionExampleComponent implements OnInit {
   epochs = 100;
   preditDenseValue = 0;
   iteration = 100;
+  predictedDenseValue = '0';
 
   // Train data
   xVals: number[] = xsInit;
@@ -199,7 +200,6 @@ export class LinearRegressionExampleComponent implements OnInit {
 
           this.chartLossFunction.data.datasets[0].data = [...this.chartLossFunctionData];
           this.chartLossFunction.update();
-          console.log(this.chartLossFunctionData);
           return stepLoss;
       });
     }
@@ -224,9 +224,8 @@ export class LinearRegressionExampleComponent implements OnInit {
   }
 
   linearPrediction(event: any) {
-    debugger;
     const output = this.linearModel.predict(tf.tensor2d([this.preditDenseValue], [1, 1])) as any;
-    this.prediction = Array.from(output.dataSync())[0];
+    this.predictedDenseValue = (Array.from(output.dataSync())[0] as number).toFixed(4);
   }
 
   generateChipsData(): void  {
