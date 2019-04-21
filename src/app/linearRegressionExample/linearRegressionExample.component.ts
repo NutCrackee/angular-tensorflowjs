@@ -110,6 +110,16 @@ export class LinearRegressionExampleComponent implements OnInit {
   }
 
   async train() {
+    // Define a model for linear regression.
+    this.linearModel = tf.sequential();
+    this.linearModel.add(tf.layers.dense({units: 1, inputShape: [1]}));
+
+    // Prepare the model for training: Specify the loss and the optimizer.
+    this.linearModel.compile({loss: 'meanSquaredError', optimizer: 'sgd'});
+
+    await this.linearModel.fit(tf.tensor1d(this.xVals), tf.tensor1d(this.yVals));
+    console.log('model trained!', this.linearPrediction(42));
+
     const optimizer = tf.train.sgd(this.learningRate);
     const errors = [];
 
@@ -139,6 +149,11 @@ debugger;
         }
       }
     });
+  }
+
+  linearPrediction(val) {
+    const output = this.linearModel.predict(tf.tensor2d([val], [1, 1])) as any;
+    this.prediction = Array.from(output.dataSync())[0]
   }
 
   generateChipsData(): void  {
