@@ -30,6 +30,10 @@
           <input matInput type="number" placeholder="Number of values" width="5" min="2"
             (change)="changeNumberOfGeneratedValues($event)" value="{{numberOfGeneratedValues}}" max="15000">
         </mat-form-field>
+        <mat-form-field class="input-values">
+            <input matInput type="number" placeholder="Number of iteration" width="5" min="2"
+              (change)="changeIteration($event)" value="{{iteration}}" max="15000">
+          </mat-form-field>
         <button mat-raised-button color="primary" (click)="generateRandomData()">Generate data</button>
       </div>
       <div>
@@ -88,6 +92,12 @@
       <div fxLayout="row" fxLayoutAlign="center center">
         <mat-icon class="ts-color">timer</mat-icon>
         <span>Time spent learning <strong>{{ scriptPerformance.timeElapsed }} ms</strong></span>
+      </div>
+      <div fxLayout="row" *ngSwitchCase="1" fxLayoutAlign="center center">
+          <mat-form-field class="input-values">
+              <input matInput type="number"width="3" (change)="changePreditValue($event)"  value="{{preditDenseValue}}" max="5000">
+          </mat-form-field>
+          <button mat-raised-button color="primary" (click)="linearPrediction($event)">Predict value</button>
       </div>
     </div>
   </mat-card-actions>

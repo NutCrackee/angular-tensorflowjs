@@ -24,6 +24,8 @@ export class LinearRegressionExampleComponent implements OnInit {
 
   // Number of epochs for sequential layer
   epochs = 100;
+  preditDenseValue = 0;
+  iteration = 100;
 
   // Train data
   xVals: number[] = xsInit;
@@ -175,16 +177,16 @@ export class LinearRegressionExampleComponent implements OnInit {
     const result1  = (this.linearModel.predict(tf.tensor1d([3.3])) as tf.Tensor2D);
     const result2  = (this.linearModel.predict(tf.tensor1d([9.27])) as tf.Tensor2D);
 
-    console.log(`Predicted ${result1.print()} and should be ${this.yVals[0]}`);
-    console.log(`Predicted ${result2.print()} and should be ${this.yVals[15]}`);
-
+    // DEBUG smazat
+    // console.log(`Predicted ${result1.print()} and should be ${this.yVals[0]}`);
+    // console.log(`Predicted ${result2.print()} and should be ${this.yVals[15]}`);
     // console.log(result.print());
 
-    console.log('model trained!', this.linearPrediction(42));
+    console.log('model je natrenovany!');
 
     const optimizer = tf.train.sgd(this.learningRate);
 
-    for (let iter = 0; iter < 10; iter++) {
+    for (let iter = 0; iter < this.iteration; iter++) {
       optimizer.minimize(()  => {
           const predsYs = this.predict(tf.tensor1d(this.xVals));
           const stepLoss: any = this.loss(predsYs, tf.tensor1d(this.yVals));
@@ -202,11 +204,9 @@ export class LinearRegressionExampleComponent implements OnInit {
       });
     }
 
-    
-
     await this.generatePlotData();
 
-    const ctx = this.getCanvasResultCtx; // this.getCanvasResultCtx;
+    const ctx = this.getCanvasResultCtx;
     this.chart = new Chart(ctx, {
       type: 'line',
       data: this.chartData,
@@ -223,8 +223,9 @@ export class LinearRegressionExampleComponent implements OnInit {
     });
   }
 
-  linearPrediction(val) {
-    const output = this.linearModel.predict(tf.tensor2d([val], [1, 1])) as any;
+  linearPrediction(event: any) {
+    debugger;
+    const output = this.linearModel.predict(tf.tensor2d([this.preditDenseValue], [1, 1])) as any;
     this.prediction = Array.from(output.dataSync())[0];
   }
 
@@ -250,6 +251,14 @@ export class LinearRegressionExampleComponent implements OnInit {
 
   changeEpochs(event: any): void {
     this.epochs = Number(event.target.value);
+  }
+
+  changeIteration(event: any): void {
+    this.iteration = Number(event.target.value);
+  }
+
+  changePreditValue(event: any): void {
+    this.preditDenseValue = Number(event.target.value);
   }
 
   generateRandomData() {
@@ -299,6 +308,9 @@ export class LinearRegressionExampleComponent implements OnInit {
 
     this.xVals = [];
     this.yVals = [];
+    this.chartData = [];
+    this.chartLossFunctionData = [];
+    this.scriptPerformance.timeElapsed = '0';
     this.chipsData = [];
   }
 
