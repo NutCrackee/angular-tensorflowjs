@@ -75,3 +75,34 @@
   font-weight: bold;
   color: white;
 }
+
+.progress-bar-section {
+  display: flex;
+  align-content: center;
+  align-items: center;
+  height: 20px;
+}
+
+.progress-bar {
+  margin-left: 10px; 
+}
+
+.progress-value {
+  margin-top: 0;
+  color: #f44336;
+  font-size: 16px;
+  letter-spacing: 1px;
+  text-align: center;
+}
+
+.done-value {
+  margin-top: 0;
+  color: #3f51b5;
+  font-size: 16px;
+  letter-spacing: 1px;
+  text-align: center;
+}
+
+.sequential-model-container {
+  margin-top: 8px;
+}

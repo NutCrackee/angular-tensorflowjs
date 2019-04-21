@@ -17,6 +17,7 @@ import { MatSliderModule } from '@angular/material/slider';
 import { MatSelectModule } from '@angular/material/select';
 import { MatListModule } from '@angular/material/list';
 import { MatChipsModule } from '@angular/material/chips';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
 
 import { DrawableDirective } from './drawable.directive';
 
@@ -51,7 +52,8 @@ import { ChartImageClassificationComponent } from './imageClassificationChart/ch
     MatSliderModule,
     MatSelectModule,
     MatListModule,
-    MatChipsModule
+    MatChipsModule,
+    MatProgressBarModule
   ],
   providers: [],
   bootstrap: [AppComponent]

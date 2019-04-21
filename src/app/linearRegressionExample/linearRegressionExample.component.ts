@@ -2,11 +2,8 @@ import { Component, ElementRef, ViewChild, ViewChildren, OnInit } from '@angular
 import { Chart } from 'chart.js';
 import { DrawableDirective } from '../drawable.directive';
 import * as tf from '@tensorflow/tfjs';
-
-interface IChip {
-  xValue: number;
-  yValue: number;
-}
+import { xsInit, ysInit } from './initialData';
+import { LearningStatus, IScriptPerformance, IChip } from './definitions';
 
 @Component({
   selector: 'app-linear-regression-example',
@@ -14,30 +11,22 @@ interface IChip {
   styleUrls: ['./linearRegressionExample.component.css']
 })
 export class LinearRegressionExampleComponent implements OnInit {
- 
+  // Progress bar configuration
+  pbColor = 'primary';
+  pbMode = 'determinate';
+  pbValue = 0;
+  pbBufferValue = 75;
+  pbStatus: LearningStatus = LearningStatus.PROGRESS;
+
+  scriptPerformance: IScriptPerformance = {};
+
+  // Number of epochs for sequential layer
+  epochs = 100;
+
   // Train data
-  xVals: number[] = [
-    42,
-    58,
-    96,
-    120,
-    158,
-    179,
-    202,
-    226,
-    242,
-    255,
-    ];
-  yVals: number[] = [
-    30,
-  44,
-  82,
-  107,
-  134,
-  154,
-  175,
-  196, 211, 222
-    ];
+  xVals: number[] = xsInit;
+  yVals: number[] = ysInit;
+
   learningRate = 0.1;
   // Generating train data
   private canvasSize = 320;
@@ -86,7 +75,7 @@ export class LinearRegressionExampleComponent implements OnInit {
     return '?';
   }
 
-  //predictionsBefore = this.predictLin(tf.tensor1d(this.xVals));
+  // predictionsBefore = this.predictLin(tf.tensor1d(this.xVals));
 
   @ViewChild(DrawableDirective) drawableCanvas;
 
@@ -97,7 +86,7 @@ export class LinearRegressionExampleComponent implements OnInit {
   ngOnInit(): void {
     this.generateChipsData();
   }
-  
+
   predict(x) {
     return tf.tidy(() => {
       return this.m.mul(x).add(this.b);
@@ -112,12 +101,47 @@ export class LinearRegressionExampleComponent implements OnInit {
   async train() {
     // Define a model for linear regression.
     this.linearModel = tf.sequential();
-    this.linearModel.add(tf.layers.dense({units: 1, inputShape: [1]}));
+    this.linearModel.add(tf.layers.dense({units: 1, inputShape: [1], useBias: true}));
 
     // Prepare the model for training: Specify the loss and the optimizer.
-    this.linearModel.compile({loss: 'meanSquaredError', optimizer: 'sgd'});
+    this.linearModel.compile({
+      loss: 'meanSquaredError',
+      optimizer: 'sgd',
+      metrics: ['mse']
+    });
 
-    await this.linearModel.fit(tf.tensor1d(this.xVals), tf.tensor1d(this.yVals));
+    const learningInput = tf.tensor1d(this.xVals);
+    const learningOutput = tf.tensor1d(this.yVals);
+
+    await this.linearModel.fit(learningInput, learningOutput, {
+      epochs: this.epochs,
+      callbacks: {
+        onTrainBegin: async (logs) => {
+          this.scriptPerformance.start = performance.now();
+          this.pbStatus = LearningStatus.PROGRESS;
+        },
+        onEpochBegin: async (epoch, logs) => {
+          this.pbValue = Number((((epoch + 1)  / this.epochs) * 100).toFixed(0));
+          // DEBUG console.log('onEpochBegin' + epoch + JSON.stringify(logs),  this.pbValue );
+        },
+        onTrainEnd:  async (logs) => {
+          this.pbStatus = LearningStatus.DONE;
+          this.scriptPerformance.end = performance.now();
+          this.scriptPerformance.timeElapsed =  (this.scriptPerformance.end -  this.scriptPerformance.start).toFixed(2);
+        }
+      }
+    });
+
+    console.log('ty pico', this.scriptPerformance.timeElapsed);
+
+    const result1  = (this.linearModel.predict(tf.tensor1d([3.3])) as tf.Tensor2D);
+    const result2  = (this.linearModel.predict(tf.tensor1d([9.27])) as tf.Tensor2D);
+
+    console.log(`Predicted ${result1.print()} and should be ${this.yVals[0]}`);
+    console.log(`Predicted ${result2.print()} and should be ${this.yVals[15]}`);
+
+    // console.log(result.print());
+
     console.log('model trained!', this.linearPrediction(42));
 
     const optimizer = tf.train.sgd(this.learningRate);
@@ -131,10 +155,10 @@ export class LinearRegressionExampleComponent implements OnInit {
           return stepLoss;
       });
     }
-debugger;
+
     await this.generatePlotData();
 
-    const ctx = this.getCanvasResultCtx; //this.getCanvasResultCtx;
+    const ctx = this.getCanvasResultCtx; // this.getCanvasResultCtx;
     this.chart = new Chart(ctx, {
       type: 'line',
       data: this.chartData,
@@ -174,6 +198,10 @@ debugger;
 
   changeNumberOfGeneratedValues(event: any): void {
     this.numberOfGeneratedValues = Number(event.target.value);
+  }
+
+  changeEpochs(event: any): void {
+    this.epochs = Number(event.target.value);
   }
 
   generateRandomData() {
@@ -217,10 +245,17 @@ debugger;
 
   // Clean all train data
   clearData() {
-    this.canvasCtx.clearRect(0, 0, this.getCanvasSize, this.getCanvasSize);
+    if (this.canvasCtx) {
+      this.canvasCtx.clearRect(0, 0, this.getCanvasSize, this.getCanvasSize);
+    }
+
     this.xVals = [];
     this.yVals = [];
     this.chipsData = [];
+  }
+
+  changeCurrentProgress(val: number) {
+    this.pbValue = val;
   }
 
   // Plot methods

@@ -55,6 +55,42 @@
   </mat-card-actions>
 </mat-card>
 
+<!-- sequential-model-card -->
+<mat-card class="sequential-model-container">
+  <h3 class="no-left-mergin">Sequential Model with dense layer</h3>
+  <mat-card-content class="content-max-width">
+<!-- CONTENT -->
+  </mat-card-content>
+  <mat-card-actions>
+    <div fxLayout="row" fxLayoutAlign="space-between start">
+        <mat-form-field class="input-values">
+          <input matInput type="number" placeholder="Number of epochs" width="3" min="2"
+            (change)="changeEpochs($event)" value="{{epochs}}" max="5000">
+        </mat-form-field>
+        <button mat-raised-button color="primary" (click)="train($event)">Train dense model</button>
+    </div>
+    <section class="progress-bar-section">
+      <mat-progress-bar
+          class="progress-bar"
+          [color]="pbColor"
+          [mode]="pbMode"
+          [value]="pbValue"
+          [bufferValue]="pbBufferValue">
+      </mat-progress-bar>
+    </section>
+    <div [ngSwitch]="pbStatus">
+      <p class="progress-value" *ngSwitchCase="0">{{ pbValue }} <strong>%</strong></p>
+      <p class="done-value" *ngSwitchCase="1"> 
+        Learning <strong>DONE ! </strong>
+      </p>
+      <div fxLayout="row" fxLayoutAlign="center center">
+        <mat-icon class="ts-color">timer</mat-icon>
+        <span> {{ scriptPerformance.timeElapsed }} ms</span>
+      </div>
+    </div>
+  </mat-card-actions>
+</mat-card>
+
 <!-- graph-result-card -->
 <mat-card class="generated-data-container">
   <h3 class="no-left-mergin">Result</h3>
