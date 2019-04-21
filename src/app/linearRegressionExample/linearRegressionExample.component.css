@@ -31,7 +31,8 @@
 }
 
 .model-container {
-  padding-top: 24px;
+  padding-bottom: 0;
+  max-height: 64px;
 }
 
 .model-text {
@@ -45,8 +46,9 @@
   color: white;
 }
 
-.no-left-mergin {
+.no-left-margin {
   margin-left: 0px;
+  margin-bottom: 6px;
 }
 
 .generated-data-container {
@@ -105,4 +107,9 @@
 
 .sequential-model-container {
   margin-top: 8px;
+}
+
+.subtitle-text {
+  margin-top: 0px;
+  margin-bottom: 12px;
 }

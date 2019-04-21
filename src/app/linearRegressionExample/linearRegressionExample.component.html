@@ -1,22 +1,6 @@
 <!-- model configuration -->
-<div fxLayout="row" fxLayoutAlign="space-between center">
-  <div class="model-configuration-container" fxLayout="column" fxLayoutAlign="start center">
-    <mat-form-field class="example-full-width">
-      <input matInput #postalCode maxlength="5" placeholder="Number of values" value="150" />
-    </mat-form-field>
-    <mat-form-field class="example-full-width">
-      <input matInput #postalCode maxlength="3" placeholder="Learning rate" value="{{learningRate}}" />
-    </mat-form-field>
-    <mat-form-field>
-      <mat-label>Select an option</mat-label>
-      <mat-select [(value)]="selected">
-        <mat-option>None</mat-option>
-        <mat-option value="1">SGD</mat-option>
-        <mat-option value="2">Adagrad</mat-option>
-      </mat-select>
-    </mat-form-field>
-  </div>
-  <div fxLayout="column" fxLayoutAlign="start center">
+<div fxLayout="row" fxLayoutAlign="center center">
+  <div fxLayout="column" fxLayoutAlign="center center">
     <canvas #canvas id="stage" width="{{ getCanvasSize }}" height="{{ getCanvasSize }}" style="border:1px solid #000000;"
       (click)="canvasClicked($event)"></canvas>
   </div>
@@ -27,7 +11,8 @@
 </div>
 <!-- train-data-card -->
 <mat-card class="generated-data-container">
-  <h3 class="no-left-mergin">Generated data</h3>
+  <h3 class="no-left-margin">Generated data</h3>
+  <p class="subtitle-text">These data will be used for training the model</p>
   <mat-card-content class="content-max-width">
     <mat-chip-list>
       <mat-chip *ngFor="let chip of chipsData">
@@ -53,17 +38,34 @@
       </div>
     </div>
   </mat-card-actions>
+
+
+  <mat-expansion-panel>
+      <mat-expansion-panel-header>
+      
+        <mat-panel-title>
+            <mat-icon class="total-value">trending_down</mat-icon>
+             Loss function graph
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <canvas #canvasLossFunction>{{ chartLossFunction }}</canvas>
+    
+    </mat-expansion-panel>
+  
+
 </mat-card>
 
 <!-- sequential-model-card -->
 <mat-card class="sequential-model-container">
-  <h3 class="no-left-mergin">Sequential Model with dense layer</h3>
+  <h3 class="no-left-margin">Sequential Model with dense layer</h3>
+  <p class="subtitle-text">Train sequential model with one dense layer and bias</p>
   <mat-card-content class="content-max-width">
 <!-- CONTENT -->
   </mat-card-content>
   <mat-card-actions>
     <div fxLayout="row" fxLayoutAlign="space-between start">
         <mat-form-field class="input-values">
+          <mat-icon class="total-value" matPrefix>loop</mat-icon>
           <input matInput type="number" placeholder="Number of epochs" width="3" min="2"
             (change)="changeEpochs($event)" value="{{epochs}}" max="5000">
         </mat-form-field>
@@ -85,7 +87,7 @@
       </p>
       <div fxLayout="row" fxLayoutAlign="center center">
         <mat-icon class="ts-color">timer</mat-icon>
-        <span> {{ scriptPerformance.timeElapsed }} ms</span>
+        <span>Time spent learning <strong>{{ scriptPerformance.timeElapsed }} ms</strong></span>
       </div>
     </div>
   </mat-card-actions>
@@ -93,7 +95,8 @@
 
 <!-- graph-result-card -->
 <mat-card class="generated-data-container">
-  <h3 class="no-left-mergin">Result</h3>
+  <h3 class="no-left-margin">Result</h3>
+  <p class="subtitle-text">Model and training data comparison</p>
   <mat-card-content class="content-max-width">
       <div class="chart-wrapper">
           <div><!-- //<div *ngIf="chart"> -->
@@ -102,8 +105,3 @@
         </div>
   </mat-card-content>
 </mat-card>
-
-<div fxLayout="row" fxLayoutAlign="space-between center">
-  TensorFlow says {{ prediction }}
-  <input type="number" (change)="predictLinear($event.target.value)">
-</div>

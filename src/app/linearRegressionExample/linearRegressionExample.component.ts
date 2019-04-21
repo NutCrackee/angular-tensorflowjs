@@ -1,5 +1,5 @@
 import { Component, ElementRef, ViewChild, ViewChildren, OnInit } from '@angular/core';
-import { Chart } from 'chart.js';
+import { Chart, ChartPoint } from 'chart.js';
 import { DrawableDirective } from '../drawable.directive';
 import * as tf from '@tensorflow/tfjs';
 import { xsInit, ysInit } from './initialData';
@@ -18,7 +18,9 @@ export class LinearRegressionExampleComponent implements OnInit {
   pbBufferValue = 75;
   pbStatus: LearningStatus = LearningStatus.PROGRESS;
 
-  scriptPerformance: IScriptPerformance = {};
+  scriptPerformance: IScriptPerformance = {
+    timeElapsed: '0'
+  };
 
   // Number of epochs for sequential layer
   epochs = 100;
@@ -34,6 +36,8 @@ export class LinearRegressionExampleComponent implements OnInit {
   chipsData: IChip[] = [];
   chart: Chart;
   chartData;
+  chartLossFunction: Chart;
+  chartLossFunctionData = [];
   // Linear regresion START
   linearModel: tf.Sequential;
   prediction: any;
@@ -55,6 +59,15 @@ export class LinearRegressionExampleComponent implements OnInit {
       this.canvasResultCtx = (this.canvasResult.nativeElement as HTMLCanvasElement).getContext('2d');
     }
     return this.canvasResultCtx;
+  }
+
+  @ViewChild('canvasLossFunction') canvasLossFunction: ElementRef;
+  private canvasLossFunctionCtx: CanvasRenderingContext2D;
+  public get getCanvasLossFunctionCtx(): CanvasRenderingContext2D {
+    if (this.canvasLossFunctionCtx === undefined) {
+      this.canvasLossFunctionCtx = (this.canvasLossFunction.nativeElement as HTMLCanvasElement).getContext('2d');
+    }
+    return this.canvasLossFunctionCtx;
   }
 
   public get getCanvasSize(): number {
@@ -85,6 +98,33 @@ export class LinearRegressionExampleComponent implements OnInit {
 
   ngOnInit(): void {
     this.generateChipsData();
+    this.xVals.forEach( (element, index) => {
+      this.drawPoint((element * 100), Math.abs(this.yVals[index] * 100 + this.getCanvasSize));
+    });
+
+    const ctxLoss = this.getCanvasLossFunctionCtx;
+    this.chartLossFunction = new Chart(ctxLoss, {
+      type: 'line',
+      data: {
+        datasets: [{
+          label: 'Loss function',
+          type: 'line',
+          showLine: true,
+          fill: true,
+          data: this.chartLossFunctionData,
+        }]
+      },
+      options: {
+        scales: {
+          xAxes: [
+            {
+              type: 'linear',
+              position: 'bottom'
+            }
+          ]
+        }
+      }
+    });
   }
 
   predict(x) {
@@ -132,8 +172,6 @@ export class LinearRegressionExampleComponent implements OnInit {
       }
     });
 
-    console.log('ty pico', this.scriptPerformance.timeElapsed);
-
     const result1  = (this.linearModel.predict(tf.tensor1d([3.3])) as tf.Tensor2D);
     const result2  = (this.linearModel.predict(tf.tensor1d([9.27])) as tf.Tensor2D);
 
@@ -145,16 +183,26 @@ export class LinearRegressionExampleComponent implements OnInit {
     console.log('model trained!', this.linearPrediction(42));
 
     const optimizer = tf.train.sgd(this.learningRate);
-    const errors = [];
 
-    for (let iter = 0; iter < 5000; iter++) {
+    for (let iter = 0; iter < 10; iter++) {
       optimizer.minimize(()  => {
           const predsYs = this.predict(tf.tensor1d(this.xVals));
-          const stepLoss = this.loss(predsYs, tf.tensor1d(this.yVals));
-          errors.push(stepLoss);
+          const stepLoss: any = this.loss(predsYs, tf.tensor1d(this.yVals));
+
+          const plotData: ChartPoint = {
+            x: iter,
+            y: Array.from(stepLoss.dataSync())[0] as number
+          };
+          this.chartLossFunctionData.push(plotData);
+
+          this.chartLossFunction.data.datasets[0].data = [...this.chartLossFunctionData];
+          this.chartLossFunction.update();
+          console.log(this.chartLossFunctionData);
           return stepLoss;
       });
     }
+
+    
 
     await this.generatePlotData();
 
@@ -177,7 +225,7 @@ export class LinearRegressionExampleComponent implements OnInit {
 
   linearPrediction(val) {
     const output = this.linearModel.predict(tf.tensor2d([val], [1, 1])) as any;
-    this.prediction = Array.from(output.dataSync())[0]
+    this.prediction = Array.from(output.dataSync())[0];
   }
 
   generateChipsData(): void  {
@@ -238,8 +286,8 @@ export class LinearRegressionExampleComponent implements OnInit {
 
   canvasClicked(event: any) {
     this.drawPoint(event.offsetX, event.offsetY);
-    this.xVals = [...this.xVals, event.offsetX];
-    this.yVals = [...this.yVals, Math.abs(event.offsetY - this.getCanvasSize)];
+    this.xVals = [...this.xVals, (event.offsetX / 100)];
+    this.yVals = [...this.yVals, (Math.abs(event.offsetY - this.getCanvasSize) / 100)];
     this.generateChipsData();
   }
 
